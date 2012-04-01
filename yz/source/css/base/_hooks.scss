@@ -1,0 +1,24 @@
+//
+// LAYOUTS
+//
+
+.clearfix { @include clearfix; }
+
+.container {
+  margin: 0 auto;
+  position: relative;
+
+  // Fluid width
+  max-width: 960px;
+  padding: 0 7%;
+  width: 86%;
+}
+
+
+//
+// STYLES
+//
+
+@mixin grainy {
+  background: #eee url(../img/noise.png);
+}

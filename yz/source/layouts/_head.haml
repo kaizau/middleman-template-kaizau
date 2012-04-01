@@ -1,0 +1,14 @@
+%head
+  = dev_header
+
+  %meta(charset="utf-8")
+  %meta(content="IE=edge,chrome=1" http-equiv="X-UA-Compatible")
+
+  %title= h data.page.title
+  %meta(name="description" content="#{h data.page.description}")
+
+  = stylesheet_link_tag 'site'
+  = javascript_include_tag 'lib/modernizr.min'
+  = javascript_include_tag 'site'
+
+  = yield_content :scripts_top

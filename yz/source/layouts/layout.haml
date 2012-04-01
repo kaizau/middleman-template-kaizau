@@ -1,0 +1,12 @@
+!!! 5
+%html
+  = partial 'layouts/head'
+  %body(class="#{page_classes}")
+
+    / BEGIN CONTENT
+
+    = yield
+
+    / END CONTENT
+
+    = partial 'layouts/scripts'

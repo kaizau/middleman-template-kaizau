@@ -1,0 +1,51 @@
+//
+// GLOBAL
+//
+
+@include normalize; // @args: essential pre sub form table future deprecated
+
+body {
+  color: $gray_4;
+  font: #{$font_sm}/#{$rhythm} $helvetica;
+  text-shadow: 0 1px 0 rgba(255,255,255,.8);
+}
+
+p, ul, ol,
+blockquote,
+pre,
+// form, table,
+h1, h2, h3, h4 { margin: $rhythm 0; }
+
+::-moz-selection { background: #ff9; color: #000; text-shadow: none; }
+::selection { background: #ff9; color: #000; text-shadow: none; }
+
+
+//
+// TAGS
+//
+
+h1, h2, h3, h4 { line-height: 1; }
+h1, h2 { @include heading-with-rhythm($font_xl); }
+h3 { @include heading-with-rhythm($font_lg); }
+h4 { @include heading-with-rhythm($font_md); }
+
+a {
+  $anchor_color: $gray_3;
+
+  color: $anchor_color;
+  text-decoration: none;
+
+  &:hover, &:visited { color: darken($anchor_color, 10%); }
+}
+
+ul, ol { padding: 0 0 0 $gutter; }
+
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+blockquote { margin: $rhythm $gutter; }
