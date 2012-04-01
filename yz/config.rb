@@ -1,6 +1,6 @@
 require 'pp'
 
-# Project Dir 
+# Project Dir
 set :css_dir, 'css'
 set :js_dir, 'js'
 set :images_dir, 'img'
@@ -8,6 +8,7 @@ set :images_dir, 'img'
 # Compass
 compass_config do |c|
   c.output_style = :expanded
+  c.line_comments = false
 end
 
 # Haml
@@ -26,7 +27,7 @@ helpers do
       "<meta name='robots' content='noindex, nofollow' />\n"
     end
   end
-end 
+end
 
 # Build
 configure :build do
