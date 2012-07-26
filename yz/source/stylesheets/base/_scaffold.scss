@@ -1,0 +1,112 @@
+// =============================================================================
+// Scaffold
+// =============================================================================
+
+
+//
+// Blank Canvas
+// -----------------------------------------------------------------------------
+
+// @args: essential pre sub form table future deprecated
+@include normalize(essential pre form table future);
+
+body {
+  @include etched-text-dark;
+  color: $gray_darker;
+  font: #{$em}/#{$vertical} $sans;
+}
+
+::-moz-selection { background: #ff9; color: #000; text-shadow: none; }
+::selection { background: #ff9; color: #000; text-shadow: none; }
+
+
+//
+// Tags
+// -----------------------------------------------------------------------------
+
+h1, h2, h3, h4 { line-height: 1; }
+h1 { font-size: $largest; }
+h2 { font-size: $larger; }
+h3 { font-size: $large; }
+h4 { font-size: $em; }
+
+a {
+  $anchor_color: $gray_dark;
+  color: $anchor_color;
+  text-decoration: none;
+
+  &:hover { color: darken($anchor_color, 10%); }
+  p &:hover { text-decoration: underline; }
+}
+
+ul, ol { padding: 0 0 0 $horizontal; }
+nav ul, nav ol { @include flat-list; }
+
+blockquote {
+  color: $gray_dark;
+  font-family: $serif;
+  margin-left: $horizontal;
+  margin-right: $horizontal;
+}
+
+video, iframe, object, embed, img {
+  max-width: 100%;
+}
+
+
+//
+// Layout
+// -----------------------------------------------------------------------------
+
+.clearfix { @include clearfix; }
+
+.container {
+  @extend .clearfix;
+  margin: 0 auto;
+  position: relative;
+
+  // Fluid width
+  max-width: $external;
+  padding: 0 5%;
+  width: 90%;
+}
+
+// Commonly clearfixed
+.row, nav, header, footer {
+  @extend .clearfix;
+}
+
+
+//
+// Vertical Rhythm
+// -----------------------------------------------------------------------------
+
+.margins,
+p, ul, ol,
+pre, blockquote,
+form, table,
+h1, h2, h3, h4 {
+  margin-top: $vertical;
+  margin-bottom: $vertical;
+}
+
+.margin-top {
+  margin-top: $vertical;
+  margin-bottom: 0;
+}
+
+.margin-bottom {
+  margin-top: 0;
+  margin-bottom: $vertical;
+}
+
+
+//
+// Utility
+// -----------------------------------------------------------------------------
+
+.pull-left { @include float-left; }
+
+.pull-right { @include float-right; }
+
+.inline-block { @include inline-block; }

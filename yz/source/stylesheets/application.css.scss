@@ -1,0 +1,42 @@
+/*!
+
+SITE CSS
+Copyright (c) 2012
+
+*/
+
+
+// =============================================================================
+// "Conventions are UI for developers."
+//
+// - Dashes for selectors
+// - Underscores for variables
+// - @import and @extend come before properties when possible
+// - Alphabetical properties
+// - 2 space soft-tabs
+// - Single quotes
+// - Serial semicolons
+// - Imports are ordered from global to specific
+// =============================================================================
+
+
+// Libraries
+@import 'compass';
+
+// Base
+@import 'base/config';
+@import 'base/helpers';
+@import 'base/scaffold';
+@import 'base/styles';
+
+// Sprites
+//@import 'icon/*.png';
+
+// Elements
+//@import 'elements/buttons';
+
+// Partials
+//@import 'partials/header';
+
+// Views
+//@import 'views/index';

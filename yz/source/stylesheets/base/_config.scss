@@ -1,0 +1,56 @@
+// =============================================================================
+// Config
+// =============================================================================
+
+
+//
+// Colors
+// -----------------------------------------------------------------------------
+
+// Shades
+$black: #000;
+$gray_darkest: #222;
+$gray_darker: #444;
+$gray_dark: #888;
+$gray: #bbb;
+$gray_light: #ccc;
+$gray_lighter: #eee;
+$gray_lightest: #f3f3f3;
+$white: #fff;
+
+
+//
+// Typography
+// -----------------------------------------------------------------------------
+
+// Font Stacks
+$sans: 'Helvetica Neue', Arial, sans-serif;
+$serif: Georgia, 'Times New Roman', Times, serif;
+$micro: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+$mono: 'Bitstream Vera Sans Mono', Consolas, Courier, monospace;
+$heading: $sans;
+
+// Sizes
+$smallest: 11px;
+$smaller: 12px;
+$small: 13px;
+$em: 14px;
+$large: 18px;
+$larger: 24px;
+$largest: 36px;
+
+
+//
+// Sizes
+// -----------------------------------------------------------------------------
+
+// Screens
+$external: 1200px;
+$laptop: 1000px;
+$tablet: 780px;
+$mobile: 500px;
+
+// Rhythm
+$unit: 10px;
+$vertical: 2 * $unit;
+$horizontal: 3 * $unit;

@@ -1,9 +1,26 @@
+# ============================================================================ #
+# Middleman Config
+#
+# More settings:
+# http://rubydoc.info/github/middleman/middleman/Middleman/Application
+# http://rubydoc.info/github/middleman/middleman/Middleman/Extensions
+# ============================================================================ #
+
 require 'pp'
 
-# Project Dir
-set :css_dir, 'css'
-set :js_dir, 'js'
-set :images_dir, 'img'
+# Middleman
+activate :livereload if development?
+activate :directory_indexes
+activate :automatic_image_sizes
+helpers ApplicationHelpers
+
+# Markdown
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true,
+               :autolink => true,
+               :superscript => true,
+               :with_toc_data => true,
+               :smartypants => true
 
 # Compass
 compass_config do |c|
@@ -11,34 +28,12 @@ compass_config do |c|
   c.line_comments = false
 end
 
-# Haml
-activate :automatic_image_sizes
-helpers do
-  def debug obj
-    "\n<pre>\n\n#{h obj.pretty_inspect}\n</pre>\n\n"
-  end
-
-  def dev_header
-    if environment == :development
-      "<!--\n"\
-      "  DEVELOPMENT SITE\n"\
-      "  Last Updated: #{DateTime.now.strftime('%b %d, %Y - %H:%M:%S')}\n"\
-      "-->\n"\
-      "<meta name='robots' content='noindex, nofollow' />\n"
-    end
-  end
-end
-
 # Build
 configure :build do
-  compass_config {|c| c.output_style = :compressed}
-
-  activate :relative_assets
-  #activate :minify_javascript
-  #activate :cache_buster
-
-  ignore '/css/lib/bourbon/lib/bourbon/sass_extensions/functions.rb'
-  ignore '/css/lib/bourbon/lib/bourbon/sass_extensions/functions/compact.rb'
-  ignore '/css/lib/bourbon/lib/bourbon/sass_extensions.rb'
-  ignore '/css/lib/bourbon/lib/bourbon.rb'
+  compass_config {|c| c.output_style = :compressed }
+  activate :minify_javascript, :ignore => /vendor\/*/
+  #activate :asset_hash
+  #activate :gzip
+  #activate :relative_assets
+  #set :http_path, "/Content/images/"
 end
