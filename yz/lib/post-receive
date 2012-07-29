@@ -1,0 +1,5 @@
+#!/bin/sh
+# Forces a checkout.
+
+# Edit working tree location!
+# GIT_WORK_TREE=/home/public git checkout -f

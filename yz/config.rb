@@ -7,12 +7,13 @@
 # ============================================================================ #
 
 require 'pp'
+require 'lib/helpers'
 
 # Middleman
 activate :livereload if development?
 activate :directory_indexes
 activate :automatic_image_sizes
-helpers ApplicationHelpers
+helpers CustomHelpers
 
 # Markdown
 set :markdown_engine, :redcarpet

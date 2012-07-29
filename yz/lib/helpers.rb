@@ -1,4 +1,4 @@
-module ApplicationHelpers
+module CustomHelpers
 
   def partial file, locals = data.page
     render_partial('partials/' + file, :locals => locals)
