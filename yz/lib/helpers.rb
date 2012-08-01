@@ -1,10 +1,14 @@
 module CustomHelpers
 
-  def partial file, locals = data.page
+  def partial(file, locals = data.page)
     render_partial('partials/' + file, :locals => locals)
   end
 
-  def debug obj
+  def index?
+    request.path == '/index.html'
+  end
+
+  def debug(obj)
     "\n<pre>\n\n#{h obj.pretty_inspect}\n</pre>\n\n" if development?
   end
 

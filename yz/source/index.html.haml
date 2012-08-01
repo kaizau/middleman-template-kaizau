@@ -7,19 +7,30 @@ page_class: index-page
 %h1(style='padding:100px 0;text-align:center;') Aloha from hell, bitches!
 
 -#
+  DATA
+  = data.page.local_var
+  = data.app.global_var
+
+  RUBY
+  - content_for :some_yield do ... end
+  - development?
+  - build?
+  - index?
+
   TAGS
   = link_to 'The Link', 'the/link/path', :class => 'nifty'
+  = link_to_if 'The Link', 'the/link/path', (:if|:unless) => request.page
   = image_tag 'puppies.jpeg', :alt => 'Fido and Bella!'
   = form_tag '/update', :method => 'POST' do ... end
+
+  PARTIALS
+  = partial 'use-page-locals'
+  = partial 'use-custom-locals', :locals => {:foo => 'bar'}
 
   LOREM
   = lorem.words 10
   = lorem.paragraph
   = lorem.image '300x400'
-
-  PARTIALS
-  = partial 'has-page-locals'
-  = partial 'has-custom-locals', :locals => {:foo => 'bar'}
 
   MORE
   http://middlemanapp.com/templates/helpers/
