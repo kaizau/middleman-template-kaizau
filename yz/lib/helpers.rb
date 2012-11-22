@@ -1,5 +1,6 @@
-module CustomHelpers
+require 'pp'
 
+module CustomHelpers
   def partial(file, locals = data.page)
     render_partial('partials/' + file, :locals => locals)
   end
@@ -21,5 +22,4 @@ module CustomHelpers
       "<meta name='robots' content='noindex, nofollow' />\n"
     end
   end
-
 end

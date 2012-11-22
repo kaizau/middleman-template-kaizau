@@ -6,13 +6,12 @@
 # http://rubydoc.info/github/middleman/middleman/Middleman/Extensions
 # ============================================================================ #
 
-require 'pp'
 require 'lib/helpers'
 
 # Middleman
 activate :livereload if development?
-activate :directory_indexes
-activate :automatic_image_sizes
+#activate :directory_indexes
+#activate :automatic_image_sizes
 helpers CustomHelpers
 
 # Markdown
@@ -26,7 +25,6 @@ set :markdown, :fenced_code_blocks => true,
 # Compass
 compass_config do |c|
   c.output_style = :expanded
-  c.line_comments = false
 end
 
 # Build

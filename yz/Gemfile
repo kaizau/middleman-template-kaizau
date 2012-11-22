@@ -1,9 +1,8 @@
 source :rubygems
 
-#gem 'middleman', '~>3.0.0'
-gem 'middleman', :git => 'git://github.com/middleman/middleman.git'
-gem 'middleman-livereload', :git => 'git://github.com/middleman/middleman-livereload.git'
-gem 'middleman-sprockets', :git => 'git://github.com/middleman/middleman-sprockets.git'
+gem 'middleman'
+gem 'middleman-livereload'
+gem 'middleman-sprockets'
 gem 'therubyracer'
 gem 'oj'
 gem 'redcarpet'
