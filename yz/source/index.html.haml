@@ -19,7 +19,7 @@ page_class: index-page
 
   TAGS
   = link_to 'The Link', 'the/link/path', :class => 'nifty'
-  = link_to_if 'The Link', 'the/link/path', (:if|:unless) => request.page
+  = link_to 'The Link', 'the/link/path', (:if|:unless) => page?('foo')
   = image_tag 'puppies.jpeg', :alt => 'Fido and Bella!'
   = form_tag '/update', :method => 'POST' do ... end
 

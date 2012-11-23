@@ -5,8 +5,12 @@ module CustomHelpers
     render_partial('partials/' + file, :locals => locals)
   end
 
+  def page?(page)
+    request.path == page + '.html' || request.path == '/' + page + '.html' || request.path == page + '/index.html'
+  end
+
   def index?
-    request.path == '/index.html'
+    page? 'index'
   end
 
   def debug(obj)
