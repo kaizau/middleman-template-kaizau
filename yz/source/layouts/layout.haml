@@ -17,7 +17,7 @@
   = stylesheet_link_tag 'application'
   = javascript_include_tag 'vendor/modernizr.min'
   - if content_for? :stylesheets
-    = yield :stylesheets
+    = yield_content :stylesheets
 
   %script
     Modernizr.load([
@@ -45,6 +45,6 @@
   / *** END CONTENT ***
 
   - if content_for? :javascripts
-    = yield :javascripts
+    = yield_content :javascripts
 
 </html>
