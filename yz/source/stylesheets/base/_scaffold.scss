@@ -24,7 +24,11 @@ body {
 // Tags
 // -----------------------------------------------------------------------------
 
-h1, h2, h3, h4 { line-height: 1; }
+h1, h2, h3, h4 { 
+  font-family: $heading;
+  line-height: 1.25; 
+}
+
 h1 { font-size: $largest; }
 h2 { font-size: $larger; }
 h3 { font-size: $large; }
@@ -72,8 +76,21 @@ video, iframe, object, embed, img {
 }
 
 // Commonly clearfixed
-.row, nav, header, footer {
+.section, nav, header, footer {
   @extend .clearfix;
+}
+
+// Poor man's grid
+.major { width: 60%; } // golden major
+.minor { width: 38%; } // golden minor
+.half { width: 49%; }
+.third { width: 32%; }
+.quarter { width: 23.5%; }
+
+.major, .minor, .half, .third, .quarter {
+  float: left;
+  margin-left: 2%;
+  &:first-child { margin-left: 0; }
 }
 
 
