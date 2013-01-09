@@ -1,7 +1,7 @@
 /*!
 
 SITE CSS
-Copyright (c) 2012
+Copyright (c) 2013
 
 */
 
@@ -11,12 +11,12 @@ Copyright (c) 2012
 //
 // - Dashes for selectors
 // - Underscores for variables
-// - @import and @extend come before properties when possible
+// - Extends and mixins before properties and CSS3 mixins
 // - Alphabetical properties
 // - 2 space soft-tabs
 // - Single quotes
 // - Serial semicolons
-// - Imports are ordered from global to specific
+// - Imports ordered from global to specific
 // =============================================================================
 
 
@@ -32,8 +32,8 @@ Copyright (c) 2012
 // Sprites
 //@import 'icon/*.png';
 
-// Elements
-//@import 'elements/buttons';
+// Modules
+//@import 'modules/buttons';
 
 // Partials
 //@import 'partials/header';
