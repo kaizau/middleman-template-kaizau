@@ -19,7 +19,7 @@
 }
 
 // Replace text with an image
-@mixin replace-text($url) {
+@mixin replace-text($image) {
   @include hide-text;
   @include background( transparent image-url($image) no-repeat );
   height: image-height($image);
