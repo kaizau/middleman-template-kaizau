@@ -13,6 +13,15 @@ module CustomHelpers
     page? 'index'
   end
 
+  def nav_link(name, page, active = 'active')
+    page = 'index' if page == '/'
+    if page?(page)
+      "<span class='#{active}'>#{name}</span>"
+    else
+      link_to name, page
+    end
+  end
+
   def debug(obj)
     "\n<pre>\n\n#{h obj.pretty_inspect}\n</pre>\n\n" if development?
   end
