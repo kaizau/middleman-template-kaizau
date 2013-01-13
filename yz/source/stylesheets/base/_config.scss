@@ -1,8 +1,3 @@
-// =============================================================================
-// Config
-// =============================================================================
-
-
 //
 // Colors
 // -----------------------------------------------------------------------------
@@ -17,6 +12,14 @@ $gray_light: #ccc;
 $gray_lighter: #eee;
 $gray_lightest: #f3f3f3;
 $white: #fff;
+
+// Palette
+$blue: #04f;
+
+// Applied
+$highlight: $blue;
+$anchor: $blue;
+$selection: #ff9;
 
 
 //
@@ -51,6 +54,6 @@ $tablet: 780px;
 $mobile: 500px;
 
 // Rhythm
-$unit: 10px;
+$unit: 12px;
 $vertical: 2 * $unit;
 $horizontal: 3 * $unit;

@@ -1,9 +1,8 @@
-// =============================================================================
+//
 // Helpers
-// =============================================================================
+// -----------------------------------------------------------------------------
 
-
-// Activates layout
+// Activates hasLayout
 @mixin clearfix {
   zoom: 1;
   &:before, &:after { content: ""; display: table; }
@@ -75,7 +74,7 @@
   text-shadow: 0 1px 0 rgba(255,255,255,.8);
 }
 @mixin etched-text-light {
-  text-shadow: 0 1px 0 rgba(0,0,0,.5);
+  text-shadow: 0 1px 1px rgba(0,0,0,.8), 0 1px 0 rgba(0,0,0,.8);
 }
 
 

@@ -1,8 +1,0 @@
-// =============================================================================
-// Styles
-// =============================================================================
-
-// DRY CSS3
-.border-radius-5 { @include border-radius(5px); }
-.border-radius-10 { @include border-radius(10px); }
-.box-shadow-small { @include box-shadow(0 2px 6px rgba(0,0,0,.35)); }

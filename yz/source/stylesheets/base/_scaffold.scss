@@ -1,8 +1,3 @@
-// =============================================================================
-// Scaffold
-// =============================================================================
-
-
 //
 // Blank Canvas
 // -----------------------------------------------------------------------------
@@ -16,8 +11,8 @@ body {
   font: #{$em}/#{$vertical} $sans;
 }
 
-::-moz-selection { background: #ff9; color: #000; text-shadow: none; }
-::selection { background: #ff9; color: #000; text-shadow: none; }
+::-moz-selection { background: $selection; color: #000; text-shadow: none; }
+::selection { background: $selection; color: #000; text-shadow: none; }
 
 
 //
@@ -26,6 +21,7 @@ body {
 
 h1, h2, h3, h4 { 
   font-family: $heading;
+  font-weight: normal;
   line-height: 1.25; 
 }
 
@@ -35,11 +31,10 @@ h3 { font-size: $large; }
 h4 { font-size: $em; }
 
 a {
-  $anchor_color: $gray_dark;
-  color: $anchor_color;
+  color: $anchor;
   text-decoration: none;
 
-  &:hover { color: darken($anchor_color, 10%); }
+  &:hover { color: lighten($anchor, 10%); }
   p &:hover { text-decoration: underline; }
 }
 
@@ -81,9 +76,9 @@ video, iframe, object, embed, img {
 }
 
 // Poor man's grid
-.major { width: 60%; } // golden major
-.minor { width: 38%; } // golden minor
-.half { width: 49%; }
+.major { width: 59.5%; } // golden major
+.minor { width: 37.5%; } // golden minor
+.half { width: 48.5%; }
 .third { width: 32%; }
 .quarter { width: 23.5%; }
 
@@ -93,12 +88,13 @@ video, iframe, object, embed, img {
   &:first-child { margin-left: 0; }
 }
 
+.major, .minor, .half { margin-left: 3%; } // more spacing for 2-column layouts
+
 
 //
 // Vertical Rhythm
 // -----------------------------------------------------------------------------
 
-.margins,
 p, ul, ol,
 pre, blockquote,
 form, table,
@@ -106,24 +102,3 @@ h1, h2, h3, h4 {
   margin-top: $vertical;
   margin-bottom: $vertical;
 }
-
-.margin-top {
-  margin-top: $vertical;
-  margin-bottom: 0;
-}
-
-.margin-bottom {
-  margin-top: 0;
-  margin-bottom: $vertical;
-}
-
-
-//
-// Utility
-// -----------------------------------------------------------------------------
-
-.pull-left { @include float-left; }
-
-.pull-right { @include float-right; }
-
-.inline-block { @include inline-block; }

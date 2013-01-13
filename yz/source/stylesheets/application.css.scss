@@ -27,7 +27,6 @@ Copyright (c) 2013
 @import 'base/config';
 @import 'base/helpers';
 @import 'base/scaffold';
-@import 'base/styles';
 
 // Sprites
 //@import 'icon/*.png';
@@ -35,8 +34,6 @@ Copyright (c) 2013
 // Modules
 //@import 'modules/buttons';
 
-// Partials
-//@import 'partials/header';
-
 // Views
-//@import 'views/index';
+@import 'views/layout';
+@import 'views/index';
