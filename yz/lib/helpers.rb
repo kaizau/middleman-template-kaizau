@@ -6,6 +6,7 @@ module CustomHelpers
   end
 
   def page?(page)
+    page = 'index' if page == '/'
     request.path == page + '.html' || request.path == '/' + page + '.html' || request.path == page + '/index.html'
   end
 
@@ -14,7 +15,6 @@ module CustomHelpers
   end
 
   def nav_link(name, page, active = 'active')
-    page = 'index' if page == '/'
     if page?(page)
       "<span class='#{active}'>#{name}</span>"
     else

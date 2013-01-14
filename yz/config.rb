@@ -10,7 +10,7 @@ require 'lib/helpers'
 
 # Middleman
 activate :livereload if development?
-#activate :directory_indexes
+activate :directory_indexes
 #activate :automatic_image_sizes
 helpers CustomHelpers
 
