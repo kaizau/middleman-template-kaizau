@@ -1,10 +1,13 @@
 ---
 title: Meta title!
 description: Meta description!
-page_class: index-page
+page_id: index-view
 ---
 
-%h1(style='padding:100px 0;text-align:center;') Aloha from hell, bitches!
+%h1(style='margin:0;padding:100px 0;text-align:center;') Aloha from hell, bitches!
+
+- content_for :modernizr do
+  '#{asset_path :js, 'application'}'
 
 -#
   DATA
@@ -19,8 +22,8 @@ page_class: index-page
 
   TAGS
   = link_to 'The Link', 'the/link/path', :class => 'nifty'
-  = link_to 'The Link', 'the/link/path', (:if|:unless) => page?('foo')
-  = image_tag 'puppies.jpeg', :alt => 'Fido and Bella!'
+  = nav_link 'The Link', 'the/link/path'
+  = image_tag 'puppies.jpg', :alt => 'Fido and Bella!'
   = form_tag '/update', :method => 'POST' do ... end
 
   PARTIALS

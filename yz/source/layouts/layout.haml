@@ -1,7 +1,7 @@
 !!! 5
 <!--[if lt IE 7]> <html lang='en' class='no-js ie6 lt-ie9 lt-ie8 lt-ie7'> <![endif]-->
-<!--[if IE 7]>    <html lang='en' class='no-js ie7 lt-ie9 lt-ie8'> <![endif]-->
-<!--[if IE 8]>    <html lang='en' class='no-js ie8 lt-ie9'> <![endif]-->
+<!--[if IE 7]> <html lang='en' class='no-js ie7 lt-ie9 lt-ie8'> <![endif]-->
+<!--[if IE 8]> <html lang='en' class='no-js ie8 lt-ie9'> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang='en' class='no-js'> <!--<![endif]-->
 
 %head
@@ -10,24 +10,24 @@
   %meta(charset='utf-8')
   %meta(content='IE=edge,chrome=1' http-equiv='X-UA-Compatible')
   %meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+  = yield_content :meta
 
   %title= data.page.title
   %meta(name='description' content="#{data.page.description}")
 
   = stylesheet_link_tag 'application'
-  = javascript_include_tag 'vendor/modernizr.min'
-  - if content_for? :stylesheets
-    = yield_content :stylesheets
+  = yield_content :stylesheets
 
-  %script
-    Modernizr.load([
-    - if ! development?
-      '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js',
-    - else
-      = "'" + asset_path(:js, 'vendor/jquery.min') + "',"
-    = "'" + asset_path(:js, 'plugins') + "',"
-    = "'" + asset_path(:js, 'application') + "'"
-    ]);
+  - if content_for? :modernizr
+    = javascript_include_tag 'vendor/modernizr.min'
+    %script
+      Modernizr.load([
+      - if ! development?
+        '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
+      - else
+        = "'" + asset_path(:js, 'vendor/jquery.min') + "',"
+      = yield_content :modernizr
+      ]);
 
   - if ! development? && data.app.google_analytics
     %script
@@ -40,11 +40,15 @@
 
   / *** BEGIN CONTENT ***
 
-  = yield
+  #page-wrap
+    = yield
+
+    #footer-push
+
+  %footer#footer
 
   / *** END CONTENT ***
 
-  - if content_for? :javascripts
-    = yield_content :javascripts
+  = yield_content :javascripts
 
 </html>

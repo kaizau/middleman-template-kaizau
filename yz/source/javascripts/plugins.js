@@ -1,2 +1,0 @@
-// Jquery plugins go here
-
