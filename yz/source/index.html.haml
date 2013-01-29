@@ -2,12 +2,27 @@
 title: Meta title!
 description: Meta description!
 page_id: index-view
+javascripts: ['application']
 ---
 
-%h1(style='margin:0;padding:100px 0;text-align:center;') Aloha from hell, bitches!
+.container
+  %h1(style='margin:0;padding:50px 0 0;text-align:center;') Aloha world!
 
-- content_for :modernizr do
-  '#{asset_path :js, 'application'}'
+  - 5.times do |i|
+    = content_tag "h#{i+1}".to_sym, "Heading #{i+1}"
+    %p= lorem.paragraph
+    - case i 
+      - when 0
+        %p Some text with an <a href='#'>inline link</a>.
+      - when 1
+        %ul
+          - 3.times do
+            %li= lorem.sentence
+      - when 2
+        %p Some text with a <a href='#' class='button'>button</a> in it.
+      - when 3
+        %blockquote= lorem.paragraph
+    %p= lorem.paragraph
 
 -#
   DATA
@@ -15,7 +30,7 @@ page_id: index-view
   = data.app.global_var
 
   RUBY
-  - content_for :some_yield do ... end
+  - content_for :meta do ... end
   - development?
   - build?
   - index?

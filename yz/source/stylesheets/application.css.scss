@@ -28,12 +28,9 @@ Copyright (c) 2013
 @import 'base/helpers';
 @import 'base/scaffold';
 
-// Sprites
-//@import 'icon/*.png';
-
 // Modules
-//@import 'modules/buttons';
+@import 'modules/buttons';
 
 // Views
-@import 'views/layout';
-@import 'views/index';
+@import 'templates/application';
+@import 'templates/index';

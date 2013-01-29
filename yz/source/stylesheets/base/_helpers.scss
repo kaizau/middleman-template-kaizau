@@ -47,12 +47,6 @@
   padding-left: 0;
 }
 
-// Applied to floated child elements that need even in-between spacing
-@mixin floated-child-spacing($margin: $horizontal) {
-  margin-left: $margin;
-  &:first-child { margin-left: 0; }
-}
-
 // Shortcut to add a background image from http://noisepng.com
 @function noise-png($intensity: 25, $opacity: 10, $mono: false, $size: 100) {
   $url: "http://noisepng.com/#{$size}-#{$intensity}-#{$opacity}";
@@ -67,14 +61,6 @@
   font-family: Baskerville, Palatino, "Palatino Linotype", Constantia, serif !important;
   font-weight: normal;
   font-style: italic;
-}
-
-// Text shadows
-@mixin etched-text-dark {
-  text-shadow: 0 1px 0 rgba(255,255,255,.8);
-}
-@mixin etched-text-light {
-  text-shadow: 0 1px 1px rgba(0,0,0,.8), 0 1px 0 rgba(0,0,0,.8);
 }
 
 

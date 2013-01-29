@@ -10,6 +10,7 @@ require 'lib/helpers'
 helpers CustomHelpers
 
 # Middleman
+set :layout, 'application'
 activate :livereload if development?
 activate :directory_indexes
 set :markdown_engine, :redcarpet
