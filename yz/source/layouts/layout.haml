@@ -19,14 +19,12 @@
   = yield_content :stylesheets
 
   - if content_for? :modernizr
+    - jquery = (! development?) ? '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js' : asset_path(:js, 'vendor/jquery.min')
     = javascript_include_tag 'vendor/modernizr.min'
-    %script
+    :javascript
       Modernizr.load([
-      - if ! development?
-        '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js',
-      - else
-        = "'" + asset_path(:js, 'vendor/jquery.min') + "',"
-      = yield_content :modernizr
+      '#{jquery}',
+      #{yield_content :modernizr}
       ]);
 
   - if ! development? && data.app.google_analytics

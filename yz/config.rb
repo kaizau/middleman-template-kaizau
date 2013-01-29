@@ -7,14 +7,11 @@
 # ============================================================================ #
 
 require 'lib/helpers'
+helpers CustomHelpers
 
 # Middleman
 activate :livereload if development?
 activate :directory_indexes
-#activate :automatic_image_sizes
-helpers CustomHelpers
-
-# Markdown
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true,
                :autolink => true,
