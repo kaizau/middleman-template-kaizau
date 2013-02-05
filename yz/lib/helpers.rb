@@ -59,12 +59,25 @@ module CustomHelpers
   # Outputs modernizr script tags, with appropriate jquery path
   #
   # Scripts should be added as a page variable (array). 
+  # External paths and paths prefixed with '!' are not altered.
+  # jQuery CDN path is automatically added on production for 'jquery'.
   #
   def modernizr_scripts
     if data.page.javascripts.is_a?(Array)
-      jquery = (! development?) ? "'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'" : "'#{asset_path(:js, 'vendor/jquery.min')}'"
-      scripts = data.page.javascripts.map {|script| "'#{asset_path :js, script}'"}
-      scripts.unshift jquery
+      jquery = (! development?) ? '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js' : asset_path(:js, 'vendor/jquery.min')
+      scripts = data.page.javascripts.map do |script| 
+        if script[0,2] == '//' || script[0,7] == 'http://' || script[0,8] == 'https://'
+          # nothing
+        elsif script[0] == '!'
+          script = script[1..-1]
+        elsif script == 'jquery'
+          script = jquery
+        else
+          script = asset_path :js, script
+        end
+
+        "'#{script}'"
+      end
 
       output = javascript_include_tag 'vendor/modernizr.min'
       output << %Q|\n<script>\n  Modernizr.load([\n    #{scripts.join(",\n    ")}\n  ]);\n</script>|
