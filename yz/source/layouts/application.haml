@@ -12,8 +12,8 @@
   %meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
   = yield_content :meta
 
-  %title= data.page.title
-  %meta(name='description' content="#{data.page.description}")
+  %title= data.page.title || data.app.title
+  %meta(name='description' content="#{data.page.description || data.app.description}")
 
   = stylesheet_link_tag 'application'
   = yield_content :stylesheets
