@@ -18,23 +18,15 @@
   = stylesheet_link_tag 'application'
   = yield_content :stylesheets
 
-  -# Add scripts as an array page variable
-  - if data.page.javascripts.is_a?(Array)
-    - jquery = (! development?) ? "'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'" : "'#{asset_path(:js, 'vendor/jquery.min')}'"
-    - scripts = data.page.javascripts.map {|script| "'#{asset_path :js, script}'"}
-    - scripts.unshift jquery
+  -# Add scripts as an page variable (array)
+  = modernizr_scripts
 
-    = javascript_include_tag 'vendor/modernizr.min'
-    %script Modernizr.load([#{scripts.join(",\n")}]);
-
-  - if ! development? && data.app.google_analytics
-    %script
-      var _gaq=[['_setAccount','#{data.app.google_analytics}'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-      s.parentNode.insertBefore(g,s)}(document,'script'));
+  - if ! development?
+    = google_analytics
 
 %body{:class => data.page.page_class, :id => data.page.page_id}
+
+  = yield_content :before_content
 
   / *** BEGIN CONTENT ***
 
@@ -47,6 +39,6 @@
 
   / *** END CONTENT ***
 
-  = yield_content :javascripts
+  = yield_content :after_content
 
 </html>

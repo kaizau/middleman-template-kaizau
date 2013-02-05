@@ -1,10 +1,17 @@
 require 'pp'
 
 module CustomHelpers
+
+  ##
+  # Shortcut to /source/partials
+  #
   def partial(file, locals = data.page)
     render_partial('partials/' + file, :locals => locals)
   end
 
+  ##
+  # Helper for determining the page you're on
+  #
   def page?(page)
     page = 'index' if page == '/'
     request.path == page + '.html' || request.path == '/' + page + '.html' || request.path == page + '/index.html'
@@ -14,6 +21,12 @@ module CustomHelpers
     page? 'index'
   end
 
+  ##
+  # Helper for generating a <span> if you're on the page, but an <a> otherwise
+  # 
+  # Padrino doesn't wrap the false condition of `link_to :if => ...` in a <span>. 
+  # This is a workaround to produce more styleable output.
+  # 
   def nav_link(name, page, active = 'active')
     if page?(page)
       "<span class='#{active}'>#{name}</span>"
@@ -22,17 +35,60 @@ module CustomHelpers
     end
   end
 
+  ##
+  # Quick and dirty variable inspection
+  #
   def debug(obj)
     "\n<pre>\n\n#{h obj.pretty_inspect}\n</pre>\n\n" if development?
   end
 
+  ##
+  # Never forget your development meta tags again 
+  #
   def dev_header
     if development?
-      "<!--\n"\
-      "  DEVELOPMENT SITE\n"\
-      "  Last Updated: #{DateTime.now.strftime('%b %d, %Y - %H:%M:%S')}\n"\
-      "-->\n"\
-      "<meta name='robots' content='noindex, nofollow' />\n"
+%Q|<!--
+  DEVELOPMENT SITE
+  Last Updated: #{DateTime.now.strftime('%b %d, %Y - %H:%M:%S')}
+-->
+<meta name='robots' content='noindex, nofollow' />|
+    end
+  end
+
+  ##
+  # Outputs modernizr script tags, with appropriate jquery path
+  #
+  # Scripts should be added as a page variable (array). 
+  #
+  def modernizr_scripts
+    if data.page.javascripts.is_a?(Array)
+      jquery = (! development?) ? "'//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'" : "'#{asset_path(:js, 'vendor/jquery.min')}'"
+      scripts = data.page.javascripts.map {|script| "'#{asset_path :js, script}'"}
+      scripts.unshift jquery
+
+      output = javascript_include_tag 'vendor/modernizr.min'
+      output << %Q|\n<script>\n  Modernizr.load([\n    #{scripts.join(",\n    ")}\n  ]);\n</script>|
+    else
+      # No Modernizr means HTML5 elements still need to init'ing in old IE
+%q|<!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.min.js"></script>
+<![endif]-->|
+    end
+  end
+
+  ##
+  # Outputs the basic GA async code
+  #
+  # ID should be set as an app variable.
+  #
+  def google_analytics
+    if data.app.google_analytics
+%Q|<script>
+  var _gaq=[['_setAccount','#{data.app.google_analytics}'],['_trackPageview']];
+  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>|
     end
   end
 end
