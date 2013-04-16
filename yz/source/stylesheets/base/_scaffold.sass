@@ -1,0 +1,112 @@
+//
+// Blank Canvas
+// -----------------------------------------------------------------------------
+
+// @args: essential pre sub form table future deprecated
++normalize(essential pre form table future)
+
+body
+  color: $gray_darker
+  font: #{$font_sm}/#{$vertical} $sans
+
+\::-moz-selection
+  background: $selection
+  color: #000
+  text-shadow: none
+
+\::selection
+  background: $selection
+  color: #000
+  text-shadow: none
+
+//
+// Tags
+// -----------------------------------------------------------------------------
+
+h1, h2, h3, h4, h5
+  font: normal #{$font_xxl}/1.25 $heading
+
+h2
+  font-size: $font_xl
+
+h3
+  font-size: $font_lg
+
+h4
+  font-size: $font_md
+
+h5
+  font-size: $font_sm
+  font-variant: small-caps
+
+a
+  color: $anchor
+  text-decoration: none
+
+  &:hover
+    color: lighten($anchor, 10%)
+
+  p &:hover
+    text-decoration: underline
+
+ul, ol
+  padding: 0 0 0 $horizontal
+
+nav ul, nav ol
+  +flat-list
+
+blockquote
+  color: $gray_dark
+  font-family: $serif
+  margin-left: $horizontal
+  margin-right: $horizontal
+
+video, iframe, object, embed, img
+  max-width: 100%
+
+//
+// Layout
+// -----------------------------------------------------------------------------
+
+.clearfix
+  +clearfix
+
+.container
+  @extend .clearfix
+  margin: 0 auto
+  position: relative
+  // Fluid width
+  max-width: $screen_lg
+  padding: 0 5%
+  width: 90%
+  // Fixed width
+  // padding: 0 $horizontal;
+  // width: $laptop - ($horizontal*2);
+
+// Commonly clearfixed
+.section, nav, header, footer
+  @extend .clearfix
+
+//
+// Vertical Rhythm
+// -----------------------------------------------------------------------------
+
+p, ul, ol
+  margin-top: $unit
+  margin-bottom: $unit
+
+pre, blockquote,
+form, table,
+h1, h2, h3, h4, h5
+  margin-top: $vertical
+  margin-bottom: $vertical
+
+p, ul, ol,
+pre, blockquote,
+form, table,
+h1, h2, h3, h4, h5
+  &:first-child
+    margin-top: 0
+
+  &:last-child
+    margin-bottom: 0

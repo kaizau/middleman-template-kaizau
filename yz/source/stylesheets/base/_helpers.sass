@@ -1,0 +1,246 @@
+//
+// Helpers
+// -----------------------------------------------------------------------------
+
+// Activates hasLayout
+=clearfix
+  zoom: 1
+  &:before, &:after
+    content: ""
+    display: table
+  &:after
+    clear: both
+
+// Hide text
+=hide-text
+  border: 0
+  color: transparent
+  font: 0 / 0 a
+  text-shadow: none
+
+// Replace text with an image
+=replace-text($image)
+  +hide-text
+  +background(transparent image-url($image) no-repeat)
+  height: image-height($image)
+  width: image-width($image)
+
+// Screenreader safe hide
+=hide-visually
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+// A <ul> that sits flush to the left
+=flat-list
+  list-style: none
+  list-style-image: none
+  margin-bottom: 0
+  margin-left: 0
+  // for IE
+  margin-top: 0
+  padding-left: 0
+
+// Shortcut to add a background image from http://noisepng.com
+@function noise-png($intensity: 25, $opacity: 10, $mono: false, $size: 100)
+  $url: "http://noisepng.com/#{$size}-#{$intensity}-#{$opacity}"
+  @if $mono == true
+    $url: $url + "-monochrome"
+  @return $url + ".png"
+
+// Sexy ampersand style, typically applied to an .amp class
+=ampersand
+  font-family: Baskerville, Palatino, "Palatino Linotype", Constantia, serif !important
+  font-weight: normal
+  font-style: italic
+
+//
+// Normalize.css
+//
+// Commonly restyled tags and properties moved to base/styles.scss
+// IE6 hacks removed altogether
+// -----------------------------------------------------------------------------
+
+=normalize($list: essential pre form)
+  @each $set in $list
+    @if $set == "essential"
+      article, aside, footer, header, nav, section
+        display: block
+      html
+        font-size: 100%
+        -webkit-text-size-adjust: 100%
+        -ms-text-size-adjust: 100%
+      body
+        margin: 0
+      a:focus
+        outline: thin dotted
+      a:hover, a:active
+        outline: 0
+      strong
+        font-weight: bold
+      img
+        border: 0
+        -ms-interpolation-mode: bicubic
+        vertical-align: middle
+    @if $set == "pre"
+      pre
+        white-space: pre
+        white-space: pre-wrap
+        word-wrap: break-word
+      pre, code
+        font-family: monospace, serif
+        font-size: 1em
+    @if $set == "sub"
+      sub, sup
+        font-size: 75%
+        line-height: 0
+        position: relative
+        vertical-align: baseline
+      sup
+        top: -0.5em
+      sub
+        bottom: -0.25em
+    @if $set == "form"
+      button, input, select, textarea
+        font-family: sans-serif
+        color: #222
+      form
+        margin: 0
+      fieldset
+        border: 0
+        margin: 0
+        padding: 0
+      label
+        cursor: pointer
+      button, input, select, textarea
+        font-size: 100%
+        margin: 0
+        vertical-align: baseline
+        *vertical-align: middle
+      button, input
+        line-height: normal
+        *overflow: visible
+      button, input[type="button"], input[type="reset"], input[type="submit"]
+        cursor: pointer
+        -webkit-appearance: button
+      input[type="checkbox"], input[type="radio"]
+        box-sizing: border-box
+        padding: 0
+      input[type="search"]
+        -webkit-appearance: textfield
+        -moz-box-sizing: content-box
+        -webkit-box-sizing: content-box
+        box-sizing: content-box
+      input[type="search"]::-webkit-search-decoration
+        -webkit-appearance: none
+      button::-moz-focus-inner, input::-moz-focus-inner
+        border: 0
+        padding: 0
+      textarea
+        overflow: auto
+        vertical-align: top
+        resize: vertical
+    @if $set == "table"
+      table
+        border-collapse: collapse
+        border-spacing: 0
+      td
+        vertical-align: top
+      table button, table input
+        *overflow: auto
+    @if $set == "future"
+      details, figure, figcaption, hgroup
+        display: block
+      audio, canvas, video
+        display: inline-block
+        *display: inline
+        *zoom: 1
+      audio:not([controls])
+        display: none
+      [hidden]
+        display: none
+      figure
+        margin: 0
+      svg:not(:root)
+        overflow: hidden
+    @if $set == "deprecated"
+      dd
+        margin: 0 0 0 40px
+      hr
+        display: block
+        height: 1px
+        border: 0
+        border-top: 1px solid #cccccc
+        margin: 1em 0
+        padding: 0
+      small
+        font-size: 85%
+      q
+        quotes: none
+      q:before, q:after
+        content: ""
+        content: none
+      mark
+        background: #ff0
+        color: #000
+        font-style: italic
+        font-weight: bold
+      ins
+        background: #ff9
+        color: #000
+        text-decoration: none
+      dfn
+        font-style: italic
+      abbr[title]
+        border-bottom: 1px dotted
+      legend
+        border: 0
+        *margin-left: -7px
+        padding: 0
+
+//
+// Print
+// -----------------------------------------------------------------------------
+
+=print
+  @media print
+    *
+      background: transparent !important
+      color: black !important
+      box-shadow: none !important
+      text-shadow: none !important
+      filter: none !important
+      -ms-filter: none !important
+    /* Black prints faster: h5bp.com/s
+    a, a:visited
+      text-decoration: underline
+    a[href]:after
+      content: " (" attr(href) ")"
+    abbr[title]:after
+      content: " (" attr(title) ")"
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after
+      content: ""
+    /* Don't show links for images, or javascript/internal links
+    pre, blockquote
+      border: 1px solid #999999
+      page-break-inside: avoid
+    thead
+      display: table-header-group
+    /* h5bp.com/t
+    tr, img
+      page-break-inside: avoid
+    img
+      max-width: 100% !important
+    @page
+      margin: 0.5cm
+
+    p, h2, h3
+      orphans: 3
+      widows: 3
+    h2, h3
+      page-break-after: avoid

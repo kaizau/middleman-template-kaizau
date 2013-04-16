@@ -22,6 +22,10 @@ javascripts: ['jquery', 'application']
         %p Some text with a <a href='#' class='button'>button</a> in it.
       - when 3
         %blockquote= lorem.paragraph
+      - when 4
+        %div(style="background: #eee; padding: 12px;")
+          %h5 An example to show auto-adjusting vertical rhythm within padded blocks.
+          %p= lorem.sentence
     %p= lorem.paragraph
 
 -#
