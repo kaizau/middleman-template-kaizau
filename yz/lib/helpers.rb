@@ -27,7 +27,7 @@ module CustomHelpers
   # Padrino doesn't wrap the false condition of `link_to :if => ...` in a <span>. 
   # This is a workaround to produce more styleable output.
   # 
-  def nav_link(name, page, active = 'active')
+  def active_link(name, page, active = 'active')
     if page?(page)
       "<span class='#{active}'>#{name}</span>"
     else

@@ -29,8 +29,8 @@ end
 configure :build do
   compass_config {|c| c.output_style = :compressed }
   activate :minify_javascript, :ignore => /vendor\/*/
-  #activate :asset_hash
-  #activate :gzip
   #activate :relative_assets
-  #set :http_path, "/Content/images/"
+  #activate :asset_hash
+  #activate :asset_host
+  #set :asset_host { '//EXAMPLE.cloudfront.net' }
 end
