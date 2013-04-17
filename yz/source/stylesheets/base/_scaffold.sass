@@ -2,6 +2,9 @@
 // Blank Canvas
 // -----------------------------------------------------------------------------
 
+*
+  +box-sizing(border-box)
+
 body
   color: $gray_darker
   font: #{$font_sm}/#{$vertical} $sans
@@ -49,11 +52,13 @@ a
 ul, ol
   padding: 0 0 0 $horizontal
 
-.flat-list
-  +flat-list
+li 
+  margin-top: $unit/2
+  &:first-child
+    margin-top: 0
 
 nav ul, nav ol
-  @extend .flat-list
+  @extend %naked-list
 
 blockquote
   color: $gray_dark
@@ -68,45 +73,39 @@ video, iframe, object, embed, img
 // Layout
 // -----------------------------------------------------------------------------
 
-.clearfix
-  +clearfix
-
+// Fluid width
 .container
-  @extend .clearfix
+  @extend %clearfix
   margin: 0 auto
   position: relative
-  // Fluid width
   max-width: $screen_lg
   padding: 0 5%
   width: 90%
-  // Fixed width
+
+  // Alternate: fixed width
   // padding: 0 $horizontal;
   // width: $laptop - ($horizontal*2);
 
 // Commonly clearfixed
-.section, nav, header, footer
-  @extend .clearfix
+.group
+  @extend %clearfix
 
 //
 // Vertical Rhythm
 // -----------------------------------------------------------------------------
 
-p, ul, ol
-  margin-top: $unit
-  margin-bottom: $unit
-
-pre, blockquote,
-form, table,
-h1, h2, h3, h4, h5
-  margin-top: $vertical
-  margin-bottom: $vertical
-
 p, ul, ol,
 pre, blockquote,
 form, table,
 h1, h2, h3, h4, h5
+  margin-top: $unit
+  margin-bottom: $unit
+
   &:first-child
     margin-top: 0
 
   &:last-child
     margin-bottom: 0
+
+h1, h2, h3, h4, h5
+  margin-top: $vertical

@@ -1,15 +1,41 @@
 //
-// Helpers
+// Placeholders
 // -----------------------------------------------------------------------------
 
 // Activates hasLayout
-=clearfix
+%clearfix
   zoom: 1
   &:before, &:after
     content: ""
     display: table
   &:after
     clear: both
+
+// A <ul> that sits flush to the left
+%naked-list
+  list-style: none
+  list-style-image: none
+  margin-bottom: 0
+  margin-left: 0
+  // for IE
+  margin-top: 0
+  padding-left: 0
+
+// <li>s are floated horizontally
+%flat-list
+  @extend %clearfix
+  @extend %naked-list
+
+  li
+    float: left
+    margin-left: $unit
+    margin-top: 0
+    &:first-child
+      margin-left: 0
+
+//
+// Mixins
+// -----------------------------------------------------------------------------
 
 // Hide text
 =hide-text
@@ -36,15 +62,15 @@
   position: absolute
   width: 1px
 
-// A <ul> that sits flush to the left
-=flat-list
-  list-style: none
-  list-style-image: none
-  margin-bottom: 0
-  margin-left: 0
-  // for IE
-  margin-top: 0
-  padding-left: 0
+// Sexy ampersand style, typically applied to an .amp class
+=ampersand
+  font-family: Baskerville, Palatino, "Palatino Linotype", Constantia, serif !important
+  font-weight: normal
+  font-style: italic
+
+//
+// Functions
+// -----------------------------------------------------------------------------
 
 // Shortcut to add a background image from http://noisepng.com
 @function noise-png($intensity: 25, $opacity: 10, $mono: false, $size: 100)
@@ -53,14 +79,8 @@
     $url: $url + "-monochrome"
   @return $url + ".png"
 
-// Sexy ampersand style, typically applied to an .amp class
-=ampersand
-  font-family: Baskerville, Palatino, "Palatino Linotype", Constantia, serif !important
-  font-weight: normal
-  font-style: italic
-
 //
-// Print
+// Print Styles
 // -----------------------------------------------------------------------------
 
 =print
