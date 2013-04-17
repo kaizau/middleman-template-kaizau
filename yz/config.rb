@@ -13,6 +13,7 @@ helpers CustomHelpers
 set :layout, 'application'
 activate :livereload if development?
 activate :directory_indexes
+activate :sprockets
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true,
                :autolink => true,
@@ -29,8 +30,7 @@ end
 configure :build do
   compass_config {|c| c.output_style = :compressed }
   activate :minify_javascript, :ignore => /vendor\/*/
-  #activate :relative_assets
-  #activate :asset_hash
+  activate :asset_hash
   #activate :asset_host
   #set :asset_host { '//EXAMPLE.cloudfront.net' }
 end
