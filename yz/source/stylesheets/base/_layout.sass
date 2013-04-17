@@ -1,6 +1,27 @@
 //
+// Container
+// -----------------------------------------------------------------------------
+
+// Fluid width
+.container
+  @extend %clearfix
+  margin: 0 auto
+  position: relative
+  max-width: $screen_lg
+  padding: 0 5%
+  width: 90%
+
+  // Alternate: fixed width
+  // padding: 0 $horizontal;
+  // width: $laptop - ($horizontal*2);
+
+//
 // Poor Man's Grid
 // -----------------------------------------------------------------------------
+
+// Parent element
+.group
+  @extend %clearfix
 
 // golden major
 .major
