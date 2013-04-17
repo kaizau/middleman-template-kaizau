@@ -6,6 +6,7 @@
 # http://rubydoc.info/github/middleman/middleman/Middleman/Extensions
 # ============================================================================ #
 
+require 'sass-globbing'
 require 'lib/helpers'
 helpers CustomHelpers
 
