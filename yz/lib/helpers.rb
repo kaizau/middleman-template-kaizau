@@ -64,7 +64,7 @@ module CustomHelpers
   #
   def modernizr_scripts
     if data.page.javascripts.is_a?(Array)
-      jquery = (! development?) ? '//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js' : asset_path(:js, 'vendor/jquery.min')
+      jquery = (! development?) ? '//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js' : asset_path(:js, 'vendor/jquery.min')
       scripts = data.page.javascripts.map do |script| 
         if script[0,2] == '//' || script[0,7] == 'http://' || script[0,8] == 'https://'
           # nothing
@@ -99,7 +99,7 @@ module CustomHelpers
 %Q|<script>
   var _gaq=[['_setAccount','#{data.app.google_analytics}'],['_trackPageview']];
   (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+  g.src='//www.google-analytics.com/ga.js';
   s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>|
     end
