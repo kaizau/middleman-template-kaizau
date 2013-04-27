@@ -14,7 +14,10 @@ module CustomHelpers
   #
   def page?(page)
     page = 'index' if page == '/'
-    request.path == page + '.html' || request.path == '/' + page + '.html' || request.path == page + '/index.html'
+    page[0] = '' if page[0] == '/'
+    request.path == page ||
+      request.path == "#{page}.html" || 
+      request.path == "#{page.chomp('.html')}/index.html"
   end
 
   def index?
