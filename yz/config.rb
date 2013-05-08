@@ -33,5 +33,7 @@ configure :build do
   activate :minify_javascript, :ignore => /vendor\/*/
   activate :asset_hash
   #activate :asset_host
-  #set :asset_host { '//EXAMPLE.cloudfront.net' }
+  #set :asset_host do
+  #  '//EXAMPLE.cloudfront.net'
+  #end
 end
