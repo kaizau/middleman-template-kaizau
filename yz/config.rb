@@ -12,7 +12,7 @@ helpers CustomHelpers
 
 # Middleman
 set :layout, 'application'
-activate :livereload if development?
+activate :livereload, :grace_period => 2 if development?
 activate :directory_indexes
 activate :sprockets
 set :markdown_engine, :redcarpet
