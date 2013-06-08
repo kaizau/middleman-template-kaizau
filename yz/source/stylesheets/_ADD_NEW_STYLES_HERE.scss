@@ -1,0 +1,27 @@
+//
+//     Give me your repetitive, your ambiguously-named,
+//     Your !important declarations yearning to breathe free,
+//     The wretched refuse of your teeming stylesheets.
+//     Send these, the homeless, the hack-ridden to me,
+//     I lift my lamp beside the golden preprocessor!
+//
+
+//
+// This is a holding file for CSS that has yet to be integrated into the global
+// style library. Its contents will be appended to application.css, overriding
+// everything that comes before it.
+//
+// Using this file helps us quarantine sloppy code away from clean code. Do 
+// your colleagues (and future self) a favor and throughly document the intent 
+// behind each addition to this file. This will help a crazy, OCD frontend
+// developer integrate your changes with global styles in the near future.
+// -----------------------------------------------------------------------------
+
+
+//
+// Helps illustrate how to add and document hacks.
+// Used on index.html.
+//
+.contrived-example-hack {
+  color: red !important;
+}
