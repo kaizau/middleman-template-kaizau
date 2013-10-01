@@ -3,13 +3,6 @@ require 'pp'
 module CustomHelpers
 
   ##
-  # Shortcut to /source/partials
-  #
-  def partial(file, locals = data.page)
-    render_partial('partials/' + file, :locals => locals)
-  end
-
-  ##
   # Helper for determining the page you're on
   #
   def page?(page)
@@ -100,21 +93,4 @@ module CustomHelpers
 <![endif]-->|.html_safe
     end
   end
-
-  ##
-  # Outputs the basic GA async code
-  #
-  # ID should be set as an app variable.
-  #
-  def google_analytics
-    if data.app.google_analytics
-%Q|<script>
-  var _gaq=[['_setAccount','#{data.app.google_analytics}'],['_trackPageview']];
-  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src='//www.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>|
-    end
-  end
-
 end

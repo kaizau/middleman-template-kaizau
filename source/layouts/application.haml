@@ -20,9 +20,8 @@
 
   -# Add scripts as an page variable (array)
   = modernizr_scripts
-
   - if ! development?
-    = google_analytics
+    = partial :analytics
 
 %body{:class => data.page.page_class, :id => data.page.page_id}
 

@@ -12,7 +12,7 @@ helpers CustomHelpers
 
 # Project
 set :layout, "application"
-set :partials_dir, "partials"
+set :partials_dir, "shared"
 
 # Under the Hood
 compass_config { |c| c.output_style = :expanded }
