@@ -11,15 +11,28 @@ javascripts: ['jquery', 'application']
   - 5.times do |i|
     = content_tag "h#{i+1}".to_sym, "Heading #{i+1}"
     %p= lorem.paragraph
-    - case i 
+    - case i
       - when 0
         %p Some text with an <a href='#'>inline link</a>.
+        %p Some text with a <a href='#' class='button'>button</a> in it.
       - when 1
         %ul
           - 3.times do
             %li= lorem.sentence
       - when 2
-        %p Some text with a <a href='#' class='button'>button</a> in it.
+        = code_block "javascript" do
+          :plain
+            var map;
+            function initialize() {
+              var mapOptions = {
+                zoom: 8,
+                center: new google.maps.LatLng(-34.397, 150.644),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+              };
+              map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            }
+
+            google.maps.event.addDomListener(window, 'load', initialize);
       - when 3
         %blockquote= lorem.paragraph
       - when 4
@@ -44,6 +57,7 @@ javascripts: ['jquery', 'application']
   = nav_link 'The Link', 'the/link/path'
   = image_tag 'puppies.jpg', :alt => 'Fido and Bella!'
   = form_tag '/update', :method => 'POST' do ... end
+  = code_block "ruby" do ... end
 
   PARTIALS
   = partial 'use-page-locals'

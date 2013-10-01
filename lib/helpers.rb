@@ -39,6 +39,16 @@ module CustomHelpers
   end
 
   ##
+  # Code blocks with correct indentation
+  #
+  # http://stackoverflow.com/questions/14792490/middleman-haml-with-github-style-fenced-code-blocks
+  # Still requires the :plain filter, but better than triple nesting each time
+  #
+  def code_block(syntax, &plaintext)
+    preserve { code(syntax, &plaintext) }
+  end
+
+  ##
   # Quick and dirty variable inspection
   #
   def debug(obj)
