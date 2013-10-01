@@ -12,6 +12,10 @@ helpers CustomHelpers
 
 # Project
 set :layout, "application"
+set :css_dir, "assets/stylesheets"
+set :js_dir, "assets/javascripts"
+set :images_dir, "assets/images"
+set :fonts_dir, "assets/fonts"
 set :partials_dir, "shared"
 
 # Under the Hood
