@@ -1,7 +1,7 @@
 ---
 title: Meta title!
 description: Meta description!
-page_id: index-view
+page_id: index
 javascripts: ['jquery', 'application']
 ---
 
@@ -13,8 +13,8 @@ javascripts: ['jquery', 'application']
     %p= lorem.paragraph
     - case i
       - when 0
-        %p Some text with an <a href='#'>inline link</a>.
-        %p Some text with a <a href='#' class='button'>button</a> in it.
+        %p Some text with an #{link_to "inline link", "/sticky.html"} (sticky footer demo).
+        %p Some text with a #{link_to "button", "#", :class => "button"} in it.
       - when 1
         %ul
           - 3.times do

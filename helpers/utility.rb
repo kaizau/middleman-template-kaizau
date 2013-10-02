@@ -17,14 +17,14 @@ def index?
 end
 
 ##
-# Helper for generating a <span> if you're on the page, but an <a> otherwise
+# Helper for nav links 
 #
-# Padrino doesn't wrap the false condition of `link_to :if => ...` in a <span>.
-# This is a workaround to produce more styleable output.
+# Padrino doesn't wrap the false condition of `link_to :if => ...` in a tag,
+# making styling a pain. This helper generates a <span> if you're on the page, but an <a> otherwise.
 #
 def active_link(name, page, active = "active")
   if page?(page)
-    "<span class='#{active}'>#{name}</span>"
+    content_tag :span, name, :class => active
   else
     link_to name, page
   end
