@@ -7,11 +7,9 @@
 # ============================================================================ #
 
 require "sass-globbing"
-require "lib/helpers"
-helpers CustomHelpers
 
 # Project
-set :layout, "application"
+set :layout, "sticky"
 set :css_dir, "assets/stylesheets"
 set :js_dir, "assets/javascripts"
 set :images_dir, "assets/images"

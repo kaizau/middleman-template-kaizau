@@ -1,7 +1,8 @@
 # ============================================================================ #
-# Global Data
+# App Data
 #
 # Access in views from `data.app.foo`
 # ============================================================================ #
 
-
+default_title: Title
+default_description: Description
