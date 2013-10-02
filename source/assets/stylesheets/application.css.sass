@@ -2,18 +2,16 @@
   SITE CSS
   Copyright (c) 2013
 
-/*
+//
   "Conventions are UI for developers."
-   - 2 space soft-tabs
-   - lower-spinal-case selectors
-   - snake_case variables
-   - alphabetical properties
-   - @include and @extend come before properties when possible
-   - @imports are ordered from global to specific 
+  - 2 space soft-tabs
+  - lower-spinal-case selectors and variables
+  - alphabetical properties
+  - @include and @extend come before properties when possible
+  - @imports are ordered from global to specific 
 
 // Libraries
 @import compass
-@import vendor/syntax
 
 // Variables
 @import base/config
@@ -26,6 +24,7 @@
 @import elements/**
 @import modules/**
 @import templates/**
+@import vendor/syntax
 
 // Quarantine
-@import ADD_NEW_STYLES_HERE
+@import HACKS
