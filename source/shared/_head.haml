@@ -1,18 +1,22 @@
 -# Reference: h5bp.com/d/head-Tips
 %head
-  = dev_header
   %meta(charset='utf-8')
-  %meta(content='IE=edge,chrome=1' http-equiv='X-UA-Compatible')
-  %meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
-  = yield_content :meta
+  %meta(content='IE=edge' http-equiv='X-UA-Compatible')
 
   %title= current_page.data.title || data.app.default_title
   %meta(name='description' content='#{current_page.data.description || data.app.default_description}')
 
-  = stylesheet_link_tag :application
-  = yield_content :stylesheets
+  %meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+  - if content_for? :meta
+    = yield_content :meta
 
-  -# Add scripts as an page variable (array)
+  = stylesheet_link_tag :application
+  - if content_for? :stylesheets
+    = yield_content :stylesheets
+
   = modernizr_scripts
-  - if ! development?
+
+  - if development?
+    %meta(name='robots' content='noindex, nofollow')
+  - else
     = partial :analytics

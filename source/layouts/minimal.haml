@@ -1,10 +1,15 @@
 !!! 5
-%html(lang='en' class='no-js')
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
-  = partial :head
+= partial :head
 
-  %body{:class => current_page.data.page_class, :id => current_page.data.page_id}
+%body{:class => current_page.data.page_class, :id => current_page.data.page_id}
 
-    = yield_content :before_content
-    = yield
-    = yield_content :after_content
+  = yield_content :before_content
+  = yield
+  = yield_content :after_content
+
+</html>
