@@ -1,7 +1,7 @@
 # ============================================================================ #
-# App Data
+# Global Data
 #
-# Access in views from `data.app.foo`
+# Access in views from `data.global.foo`
 # ============================================================================ #
 
 default_title: Title

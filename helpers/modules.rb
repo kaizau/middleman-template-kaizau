@@ -16,8 +16,10 @@ end
 # jQuery CDN path is automatically added on production for "jquery".
 #
 def modernizr_scripts
-  if data.page.javascripts.is_a?(Array)
-    scripts = data.page.javascripts.map do |script|
+  scripts = current_page.data.javascripts || data.global.javascripts
+
+  if scripts.is_a?(Array)
+    scripts.map! do |script|
       if script[0,2] == "//" || script[0,7] == "http://" || script[0,8] == "https://"
         # use as is
       elsif script[0] == "!"
@@ -34,9 +36,7 @@ def modernizr_scripts
     output = javascript_include_tag "vendor/modernizr.min"
     output << %Q|\n<script>\n  Modernizr.load([\n    #{scripts.join(",\n    ")}\n  ]);\n</script>|.html_safe
   else
-    # No Modernizr means HTML5 elements still need to init'ing in old IE
-%q|<!--[if lt IE 9]>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.min.js"></script>
-<![endif]-->|.html_safe
+    output = "<!--[if lt IE 9]><script src='//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.min.js'></script><![endif]-->".html_safe
+    output << "<script>with(document.documentElement){className=className.replace(/\\bno-js\\b/,'js')}</script>".html_safe
   end
 end

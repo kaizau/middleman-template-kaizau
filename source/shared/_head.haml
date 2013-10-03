@@ -3,8 +3,8 @@
   %meta(charset='utf-8')
   %meta(content='IE=edge' http-equiv='X-UA-Compatible')
 
-  %title= current_page.data.title || data.app.default_title
-  %meta(name='description' content='#{current_page.data.description || data.app.default_description}')
+  %title= current_page.data.title || data.global.default_title
+  %meta(name='description' content='#{current_page.data.description || data.global.default_description}')
 
   %meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
   - if content_for? :meta
