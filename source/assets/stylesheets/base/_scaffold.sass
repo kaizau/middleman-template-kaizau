@@ -5,9 +5,16 @@
 *
   +box-sizing(border-box)
 
-body
+html,
+button,
+input,
+select,
+textarea
   color: $gray_darker
+
+html
   font: #{$font_sm}/#{$vertical} $sans
+  line-height: $vertical
 
 \::-moz-selection
   background: $selection
@@ -23,7 +30,11 @@ body
 // Tags
 // -----------------------------------------------------------------------------
 
-h1, h2, h3, h4, h5
+h1,
+h2,
+h3,
+h4,
+h5
   font: normal #{$font_xxl}/1.25 $heading
 
 h2
@@ -49,15 +60,17 @@ a
   p &:hover
     text-decoration: underline
 
-ul, ol
+ol,
+ul
   padding: 0 0 0 $horizontal
 
-li 
+li
   margin-top: $unit/2
   &:first-child
     margin-top: 0
 
-nav ul, nav ol
+nav ul,
+nav ol
   @extend %naked-list
 
 blockquote
@@ -66,8 +79,14 @@ blockquote
   margin-left: $horizontal
   margin-right: $horizontal
 
-video, iframe, object, embed, img
+audio,
+canvas,
+embed,
+img,
+object,
+video
   max-width: 100%
+  vertical-align: middle
 
 //
 // Vertical Rhythm

@@ -8,15 +8,16 @@
   - lower-spinal-case selectors and variables
   - alphabetical properties
   - @include and @extend come before properties when possible
-  - @imports are ordered from global to specific 
+  - @imports are ordered from global to specific
 
 // Libraries
 @import compass
+@import vendor/normalize
+@import vendor/syntax
 
 // Variables
 @import base/config
 @import base/helpers
-@import base/normalize
 @import base/scaffold
 @import base/layout
 
@@ -24,7 +25,6 @@
 @import elements/**
 @import modules/**
 @import templates/**
-@import vendor/syntax
 
-// Quarantine
+// Hacks and Experiments
 @import HACKS
