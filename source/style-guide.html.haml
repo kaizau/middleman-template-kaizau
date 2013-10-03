@@ -1,9 +1,10 @@
 ---
 title: Style Guide
+page_id: style-guide
 ---
 
 - content_for :meta do
-  %meta
+  %meta(name='robots' content='noindex, nofollow')
 
 - content_for :stylesheets do
   :css
@@ -44,6 +45,21 @@ title: Style Guide
 
 %section.container
   %header.header
+    %h1 Styles
+
+  %h2 Retina Background
+  %p.retina-background
+
+  %h2 Retina Sprites
+  %p.retina-sprites
+    .retina-one
+    .retina-two
+
+  %h2 Placeholder Background Noise
+  %p.noise-png
+
+%section.container
+  %header.header
     %h1 Modules
 
   %h2 Code Block
@@ -70,6 +86,7 @@ title: Style Guide
         %th The
         %th Table
         %th Header
+    -# <tfoot> above <tbody> for performance
     %tfoot
       %tr
         %td The

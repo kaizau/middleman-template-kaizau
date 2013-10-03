@@ -37,6 +37,18 @@
 // Mixins
 // -----------------------------------------------------------------------------
 
+// Retina background image
+=background-image-retina($base, $ext: ".png")
+  $image: $base + $ext
+  $retina: $base + $retina-suffix + $ext
+
+  background-image: image-url($image)
+
+  @if file_exists($retina)
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+      +background-size(image-width($image) auto)
+      background-image: image-url($retina)
+
 // Hide text
 =hide-text
   border: 0
