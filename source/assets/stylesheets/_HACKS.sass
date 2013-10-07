@@ -1,5 +1,5 @@
 //
-  Placeholder style for Style Guide
+  Demo grid
     @targets  style-guide.html
     @added    10/3/13
 .grid-column-1-of-12
@@ -8,12 +8,29 @@
 .grid-column-3-of-12
   +grid(3)
 
+//
+  Demo backgrounds
+    @targets  style-guide.html
+    @added    10/3/13
 .noise-png
   background: #fee url(noise-png())
   padding: 20px
 
 .retina-background
-  +background-image-retina("kitten", ".jpg")
-  height: 300px
+  +background-image-retina("example", ".png")
+  height: 100px
 
+//
+  Demo sprites
+    @targets  style-guide.html
+    @added    10/7/13
+@import puppy/*.png
+@import puppy-2x/*.png
 .retina-sprites
+  +all-retina-sprites($puppy-sprites, $puppy-2x-sprites)
+
+  .sprite
+    display: inline-block
+    height: 100px
+    margin-right: 10px
+    width: 100px

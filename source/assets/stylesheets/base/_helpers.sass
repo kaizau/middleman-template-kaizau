@@ -25,7 +25,7 @@
 %inline-list
   @extend %naked-list
 
-  li 
+  li
     display: inline-block
     margin-right: $unit
     margin-bottom: 0
@@ -59,6 +59,26 @@
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
       +background-size(image-width($image) auto)
       background-image: image-url($retina)
+
+// 
+  Retina sprites
+    @import 'example/*.png' stores the sprite map under $example-sprites. 
+    This mixin requires two maps with identical sprite names.
+=all-retina-sprites($map, $map2x)
+  $sprite: sprite-map-name($map)
+  $names: sprite-names($map)
+
+  @each $name in $names
+    .#{$sprite}-#{$name}
+      background-image: $map
+      background-position: sprite-position($map, $name)
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+    @each $name in $names
+      .#{$sprite}-#{$name}
+        background-image: $map2x
+        background-position: 0 round(nth(sprite-position($map2x, $name), 2) / 2)
+        background-size: image-width(sprite-file($map, $name)) auto
 
 // Hide text
 =hide-text

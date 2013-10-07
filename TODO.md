@@ -2,7 +2,6 @@
 
 ## CSS 
 
-* retina sprites helper
 * jpg sprites + helper
 * user-select: none on buttons, navs, etc.
 * config, variable names
