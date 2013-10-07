@@ -13,13 +13,54 @@ page_id: style-guide
       padding: 40px;
     }
 
+    .grid, 
+    .grid-column {
+      background: rgba(255, 0, 0, .05);
+    }
+
+    .grid-row { margin: 10px 0; }
+
+    .grid-column { 
+      height: 40px; 
+      line-height: 40px; 
+      text-align: center;
+    }
+
+%section.container
+  %header.header
+    %h1 Base
+
+  %h2 Colors
+  %h2 Sizes
+  %h2 Grid
+
+  .grid
+    .grid-row
+      .grid-column.grid-column-1-of-12 1
+      .grid-column.grid-column-1-of-12 2
+      .grid-column.grid-column-1-of-12 3
+      .grid-column.grid-column-1-of-12 4
+      .grid-column.grid-column-1-of-12 5
+      .grid-column.grid-column-1-of-12 6
+      .grid-column.grid-column-1-of-12 7
+      .grid-column.grid-column-1-of-12 8
+      .grid-column.grid-column-1-of-12 9
+      .grid-column.grid-column-1-of-12 10
+      .grid-column.grid-column-1-of-12 11
+      .grid-column.grid-column-1-of-12 12
+    .grid-row
+      .grid-column.grid-column-3-of-12 1
+      .grid-column.grid-column-3-of-12 2
+      .grid-column.grid-column-3-of-12 3
+      .grid-column.grid-column-3-of-12 4
+
 %section.container
   %header.header
     %h1 Common Tags
 
   %h1 Heading 1
   %p= lorem.sentences 3
-  %p Text with an #{link_to "inline link", "/sticky.html"} (sticky footer demo).
+  %p Text with an #{link_to "inline link"}.
   %p Text with a #{link_to "button", "#", :class => "button"} in it.
 
   %h2 Heading 2
@@ -45,22 +86,13 @@ page_id: style-guide
 
 %section.container
   %header.header
-    %h1 Styles
-
-  %h2 Retina Background
-  %p.retina-background
-
-  %h2 Retina Sprites
-  %p.retina-sprites
-    .retina-one
-    .retina-two
-
-  %h2 Placeholder Background Noise
-  %p.noise-png
-
-%section.container
-  %header.header
     %h1 Modules
+
+  %h2 Header
+  %h2 Group
+  %h2 Button
+  %h2 Form Elements
+  %h2 Navs
 
   %h2 Code Block
   %p= lorem.sentences 3
@@ -101,6 +133,28 @@ page_id: style-guide
         %td Cell
         %td Cell
         %td Cell
+
+%section.container
+  %header.header
+    %h1 Utilities
+
+  %h2 Retina Background
+  %p.retina-background
+
+  %h2 Retina Sprites
+  %p.retina-sprites
+    .retina-one
+    .retina-two
+    .retina-three
+
+  %h2 Jpeg Sprites
+  %p.jpeg-sprites
+    .jpeg-one
+    .jpeg-two
+    .jpeg-three
+
+  %h2 Placeholder Background Noise
+  %p.noise-png
 
 %section.container
   %header.header

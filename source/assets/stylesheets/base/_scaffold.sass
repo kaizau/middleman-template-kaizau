@@ -64,14 +64,13 @@ ol,
 ul
   padding: 0 0 0 $horizontal
 
-li
-  margin-top: $unit/2
-  &:first-child
-    margin-top: 0
+  nav &
+    @extend %naked-list
 
-nav ul,
-nav ol
-  @extend %naked-list
+li
+  margin-bottom: $unit/2
+  &:last-child
+    margin-bottom: 0
 
 blockquote
   color: $gray_dark

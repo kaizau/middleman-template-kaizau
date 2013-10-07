@@ -18,7 +18,7 @@ set :partials_dir, "shared"
 
 # Under the Hood
 compass_config { |c| c.output_style = :expanded }
-activate :livereload, :grace_period => 2 if development?
+activate :livereload, :grace_period => 1 if development?
 activate :directory_indexes
 activate :sprockets
 activate :syntax, :line_numbers => true

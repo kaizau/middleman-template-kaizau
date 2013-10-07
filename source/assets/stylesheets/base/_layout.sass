@@ -1,50 +1,56 @@
 //
+// Block
+// -----------------------------------------------------------------------------
+
+.block
+  @extend %clearfix
+
+//
 // Container
 // -----------------------------------------------------------------------------
 
-// Fluid width
 .container
   @extend %clearfix
   margin: 0 auto
-  position: relative
+
+  // Fluid width
   max-width: $screen_lg
   padding: 0 5%
   width: 100%
 
-  // Alternate: fixed width
+  // Fixed width
   // padding: 0 $horizontal;
   // width: $laptop - ($horizontal*2);
 
 //
-// Poor Man's Grid
+// Grid
 // -----------------------------------------------------------------------------
 
-// Parent element
-.group
+$grid-columns: 12
+$grid-column-width: 80% / $grid-columns
+$grid-gutter-width: 20% / ($grid-columns - 1)
+
+.grid,
+.grid-row
   @extend %clearfix
+  clear: both
+  display: block
+  text-align: left
+  width: 100%
 
-// golden major
-.major
-  width: 58.5%
-
-// golden minor
-.minor
-  width: 36.5%
-
-.half
-  width: 47.5%
-
-.third
-  width: 32%
-
-.quarter
-  width: 23.5%
-
-.major, .minor, .half, .third, .quarter
+.grid-column
   float: left
-  margin-left: 2%
+  margin-left: $grid-gutter-width / 2
+  margin-right: $grid-gutter-width / 2
+
   &:first-child
     margin-left: 0
 
-.major, .minor, .half
-  margin-left: 5%
+  &:last-child
+    margin-right: 0
+
+@function grid($columns)
+  @return ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1))
+
+=grid($columns)
+  width: grid($columns)

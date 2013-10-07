@@ -21,6 +21,17 @@
   margin-top: 0
   padding-left: 0
 
+// <li>s are inlined
+%inline-list
+  @extend %naked-list
+
+  li 
+    display: inline-block
+    margin-right: $unit
+    margin-bottom: 0
+    &:last-child
+      margin-right: 0
+
 // <li>s are floated horizontally
 %flat-list
   @extend %clearfix
@@ -28,10 +39,10 @@
 
   li
     float: left
-    margin-left: $unit
-    margin-top: 0
-    &:first-child
-      margin-left: 0
+    margin-right: $unit
+    margin-bottom: 0
+    &:last-child
+      margin-right: 0
 
 //
 // Mixins
@@ -79,6 +90,9 @@
   font-family: Baskerville, Palatino, "Palatino Linotype", Constantia, serif !important
   font-weight: normal
   font-style: italic
+
+=noise-png($intensity: 25, $opacity: 10, $mono: false, $size: 100)
+  background-image: noise-png($intensity, $opacity, $mono, $size)
 
 //
 // Functions
