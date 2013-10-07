@@ -12,7 +12,8 @@
 
 * modules and elements are top-level classes (style is independent of context)
 * modules classes are single-words (`.footernav`, not `.footer-nav`)
-* module sub-elements follow a `.module-element-modifier` pattern
+* module sub-elements follow a `.module-element` pattern
+* modifiers follow a `.parent_modifier` patter (underscore)
 
 #### Base
 
