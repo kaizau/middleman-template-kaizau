@@ -2,7 +2,6 @@
 
 ## CSS 
 
-* jpg sprites + helper
 * user-select: none on buttons, navs, etc.
 * config, variable names
 * name spaced css (.experimental, .bs-container)

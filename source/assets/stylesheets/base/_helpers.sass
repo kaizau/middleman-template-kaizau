@@ -60,10 +60,10 @@ $retina-suffix: "_2x" !default
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
       +background-size(image-width($image) auto)
       background-image: image-url($retina)
-
-// 
+ 
+//
   Retina sprites
-    @import 'example/*.png' stores the sprite map under $example-sprites. 
+    @import 'example/*.png' stores the sprite map under $example-sprites.
     This mixin requires two maps with identical sprite names.
 =all-retina-sprites($map, $map2x)
   $sprite: sprite-map-name($map)

@@ -24,11 +24,18 @@
   Demo sprites
     @targets  style-guide.html
     @added    10/7/13
-@import puppy/*.png
-@import puppy_2x/*.png
+@import sprites/puppy/*.png
+@import sprites/puppy_2x/*.png
+@import sprites/puppy_jpeg/*.png
+
 .retina-sprites
   +all-retina-sprites($puppy-sprites, $puppy_2x-sprites)
 
+.jpeg-sprites
+  +all-puppy_jpeg-sprites
+
+.retina-sprites,
+.jpeg-sprites
   .sprite
     display: inline-block
     height: 100px
