@@ -1,16 +1,25 @@
 /*!
   STYLEGUIDE
 
-// Libraries
 @import compass
+@import base/config-old
 @import base/config
 @import base/helpers
 @import base/layout
 
-// Styleguide Structure
 .container
   border-bottom: 1px solid #ccc
   padding: 40px
+
+//
+// Base
+// -----------------------------------------------------------------------------
+
+// Colors
+.colors
+
+
+// Sizes
 
 // Demo grid
 .grid,
@@ -43,16 +52,10 @@
 // Demo sprites
 @import sprites/puppy/*.png
 @import sprites/puppy_2x/*.png
-@import sprites/puppy_jpeg/*.png
 
 .retina-sprites
   +all-retina-sprites($puppy-sprites, $puppy_2x-sprites)
 
-.jpeg-sprites
-  +all-puppy_jpeg-sprites
-
-.retina-sprites,
-.jpeg-sprites
   .sprite
     display: inline-block
     height: 100px

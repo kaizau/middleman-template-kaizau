@@ -2,37 +2,41 @@
 
 ### Code Conventions
 
-* 2 space soft-tabs
-* lower-spinal-case selectors and variables
-* alphabetize properties
+**General**
+
+* Soft-tabs, 2 spaces
+* Lower-spinal-case selectors and variables
+* Alphabetized properties
 * `@include` and `@extend` come before properties whenever possible
-* `@import`s are ordered from global to specific
+* `@import`s ordered from general to specific
 
-### Naming Conventions
+**Class Names**
 
-* modules and elements are top-level classes (style is independent of context)
-* modules classes are single-words (`.footernav`, not `.footer-nav`)
-* module sub-elements follow a `.module-element` pattern
-* modifiers follow a `.parent_modifier` patter (underscore)
+* General to specific, left to right (`.header`, `.header-tagline`, `.header-tagline_special`)
+* Underscores for modifier classes (`.button_danger`)
+* Modules and elements are top-level classes (unaffected by the cascade)
+* Modules classes are single-words (`.footernav` not `.footer-nav`)
 
-#### Base
+**Variable Names**
 
-Global styles. Sass variables, mixins, placeholders, layout, global properties,
-typography, and vertical rhythm.
+* 2-stage variables: value (`$gray-dark: #444`) and usage (`$color-heading: $gray-dark`)
+* Usage variables include the name of their property (`$border-radius-alert`)
 
-#### Elements
+### Folder Structure
 
-Atomic UI elements. Can be single tags or small groups of classes (`.button`,
-`.input.text input`). Can be nested within modules but not other elements.
-
-#### Modules
-
-High-level interface modules (`.topnav`). Can contain global elements as well
-as module-specific elements. Can be nested within other modules.
-
-#### Hacks and Experiments
-
-Code that's temporary or experimental should be kept in `_HACKS.sass` to keep
-the main stylesheets clean. This file is appended to `application.css`,
-overriding everything that comes before it. Remember to thoroughly document
-everything and to periodically take out the garbage.
+* **Base**
+  - Global styles, variables, mixins, etc.
+* **Elements**
+  - Atomic UI elements
+  - Single tags or small groups of classes (`.button`, `.input.text input`)
+  - Cannot contain other elements or modules
+* **Modules**
+  - High-level interface groups (`.topnav`)
+  - Typically contain a group of elements
+  - Can have elements or other modules nested within
+* **Hacks / Experiments**
+  - Quarantine for temporary or experimental code
+  - Use liberally and clean out periodically
+* **Vendor**
+  - 3rd party code
+  - Never edit these files directly
