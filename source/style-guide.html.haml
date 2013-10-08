@@ -5,35 +5,27 @@ page_id: style-guide
 
 - content_for :meta do
   %meta(name='robots' content='noindex, nofollow')
-
+  
 - content_for :stylesheets do
-  :css
-    .container {
-      border-bottom: 1px solid #ccc;
-      padding: 40px;
-    }
-
-    .grid,
-    .grid-column {
-      background: rgba(255, 0, 0, .05);
-    }
-
-    .grid-row { margin: 10px 0; }
-
-    .grid-column {
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-    }
+  = stylesheet_link_tag :styleguide
 
 %section.container
   %header.header
     %h1 Base
 
   %h2 Colors
-  %h2 Sizes
-  %h2 Grid
+  .colors
+    .color.gray Gray
+    .color.gray Gray  
+    .color.gray Gray
 
+  %h2 Sizes
+  .sizes
+    .size.s1
+    .size.s1
+    .size.s1
+
+  %h2 Grid
   .grid
     .grid-row
       .grid-column.grid-column-1-of-12 1

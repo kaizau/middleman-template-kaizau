@@ -1,0 +1,60 @@
+/*!
+  STYLEGUIDE
+
+// Libraries
+@import compass
+@import base/config
+@import base/helpers
+@import base/layout
+
+// Styleguide Structure
+.container
+  border-bottom: 1px solid #ccc
+  padding: 40px
+
+// Demo grid
+.grid,
+.grid-column
+  background: rgba(255, 0, 0, .05)
+
+.grid-row
+  margin: 10px 0
+
+.grid-column
+  height: 40px
+  line-height: 40px
+  text-align: center
+
+.grid-column-1-of-12
+  +grid(1)
+
+.grid-column-3-of-12
+  +grid(3)
+
+// Demo backgrounds
+.noise-png
+  background: #fee url(noise-png())
+  padding: 20px
+
+.retina-background
+  +background-image-retina("example", ".png")
+  height: 100px
+
+// Demo sprites
+@import sprites/puppy/*.png
+@import sprites/puppy_2x/*.png
+@import sprites/puppy_jpeg/*.png
+
+.retina-sprites
+  +all-retina-sprites($puppy-sprites, $puppy_2x-sprites)
+
+.jpeg-sprites
+  +all-puppy_jpeg-sprites
+
+.retina-sprites,
+.jpeg-sprites
+  .sprite
+    display: inline-block
+    height: 100px
+    margin-right: 10px
+    width: 100px
