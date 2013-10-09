@@ -67,8 +67,6 @@ GEM
     middleman-syntax (1.2.1)
       middleman-core (~> 3.0)
       rouge (~> 0.3.0)
-    mini_magick (3.6.0)
-      subexec (~> 0.2.1)
     multi_json (1.8.0)
     oj (2.1.4)
     rack (1.5.2)
@@ -98,7 +96,6 @@ GEM
     sprockets-sass (1.0.1)
       sprockets (~> 2.0)
       tilt (~> 1.1)
-    subexec (0.2.3)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -116,7 +113,6 @@ DEPENDENCIES
   middleman-livereload
   middleman-sprockets
   middleman-syntax
-  mini_magick
   oj
   redcarpet
   sass-globbing
