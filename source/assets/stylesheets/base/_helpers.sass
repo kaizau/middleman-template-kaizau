@@ -1,6 +1,6 @@
 //
-// Placeholders
-// -----------------------------------------------------------------------------
+  Placeholders
+  -----------------------------------------------------------------------------
 
 // Activates hasLayout
 %clearfix
@@ -17,9 +17,6 @@
   list-style-image: none
   margin-bottom: 0
   margin-left: 0
-  // for IE
-  margin-top: 0
-  padding-left: 0
 
 // <li>s are inlined
 %inline-list
@@ -27,7 +24,7 @@
 
   li
     display: inline-block
-    margin-right: $unit
+    margin-right: $space-h
     margin-bottom: 0
     &:last-child
       margin-right: 0
@@ -39,14 +36,14 @@
 
   li
     float: left
-    margin-right: $unit
+    margin-right: $space-h
     margin-bottom: 0
     &:last-child
       margin-right: 0
 
 //
-// Mixins
-// -----------------------------------------------------------------------------
+  Mixins
+  -----------------------------------------------------------------------------
 
 // Retina background image
 $retina-suffix: "_2x" !default
@@ -112,16 +109,12 @@ $retina-suffix: "_2x" !default
   font-weight: normal
   font-style: italic
 
-=noise-png($intensity: 25, $opacity: 10, $mono: false, $size: 100)
-  background-image: noise-png($intensity, $opacity, $mono, $size)
-
-//
-// Functions
-// -----------------------------------------------------------------------------
-
 // Shortcut to add a background image from http://noisepng.com
 @function noise-png($intensity: 25, $opacity: 10, $mono: false, $size: 100)
   $url: "http://noisepng.com/#{$size}-#{$intensity}-#{$opacity}"
   @if $mono == true
     $url: $url + "-monochrome"
   @return $url + ".png"
+
+=noise-png($intensity: 25, $opacity: 10, $mono: false, $size: 100)
+  background-image: noise-png($intensity, $opacity, $mono, $size)

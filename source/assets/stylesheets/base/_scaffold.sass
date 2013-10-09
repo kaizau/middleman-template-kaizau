@@ -1,6 +1,6 @@
 //
-// Blank Canvas
-// -----------------------------------------------------------------------------
+  Blank Canvas
+  -----------------------------------------------------------------------------
 
 *
   +box-sizing(border-box)
@@ -10,73 +10,64 @@ button,
 input,
 select,
 textarea
-  color: $gray_darker
+  color: $color-text
 
 html
-  font: #{$font_sm}/#{$vertical} $sans
-  line-height: $vertical
+  font: #{$font-size-body}/#{$line-height} $font-family-sans
 
 \::-moz-selection
-  background: $selection
+  background: $color-selection
   color: #000
   text-shadow: none
 
 \::selection
-  background: $selection
+  background: $color-selection
   color: #000
   text-shadow: none
 
 //
-// Tags
-// -----------------------------------------------------------------------------
+  Tags
+  -----------------------------------------------------------------------------
 
 h1,
 h2,
 h3,
-h4,
-h5
-  font: normal #{$font_xxl}/1.25 $heading
+h4
+  font: normal #{$font-size-huge}/#{$line-height * 2} $font-family-sans
 
 h2
-  font-size: $font_xl
+  font-size: $font-size-headline
 
 h3
-  font-size: $font_lg
+  font-size: $font-size-tagline
 
 h4
-  font-size: $font_md
-
-h5
-  font-size: $font_sm
-  font-variant: small-caps
+  font-size: $font-size-body
+  font-weight: bold
+  line-height: $line-height
 
 a
-  color: $anchor
+  color: $color-anchor
   text-decoration: none
 
   &:hover
-    color: lighten($anchor, 10%)
+    color: lighten($color-anchor, 10%)
 
   p &:hover
     text-decoration: underline
 
 ol,
 ul
-  padding: 0 0 0 $horizontal
+  padding: 0 0 0 $space-h
 
   nav &
     @extend %naked-list
 
-li
-  margin-bottom: $unit/2
-  &:last-child
-    margin-bottom: 0
-
 blockquote
-  color: $gray_dark
-  font-family: $serif
-  margin-left: $horizontal
-  margin-right: $horizontal
+  color: $color-text-light
+  font-family: $font-family-serif
+  margin-left: $space-h
+  margin-right: $space-h
 
 audio,
 canvas,
@@ -88,21 +79,18 @@ video
   vertical-align: middle
 
 //
-// Vertical Rhythm
-// -----------------------------------------------------------------------------
+  Vertical Rhythm
+  -----------------------------------------------------------------------------
 
 p, ul, ol,
 pre, blockquote,
 form, table,
 h1, h2, h3, h4, h5
-  margin-top: $unit
-  margin-bottom: $unit
+  margin-top: $space-v
+  margin-bottom: $space-v
 
   &:first-child
     margin-top: 0
 
   &:last-child
     margin-bottom: 0
-
-h1, h2, h3, h4, h5
-  margin-top: $vertical

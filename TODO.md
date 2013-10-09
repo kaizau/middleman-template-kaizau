@@ -1,6 +1,6 @@
 # To Do
 
-* config, variable names
-* Error page template
-* Immediate buttons / fasttap
-* Momentum scrolling
+* opera fluid grid width bug
+* javascript docs
+* immediate buttons / fasttap
+* momentum scrolling

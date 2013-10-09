@@ -2,62 +2,117 @@
   STYLEGUIDE
 
 @import compass
-@import base/config-old
 @import base/config
 @import base/helpers
 @import base/layout
 
-.container
-  border-bottom: 1px solid #ccc
-  padding: 40px
+.container-styleguide
+  border-bottom: 1px solid $color-border
+  padding-bottom: $space-v * 2 - 1px
+  padding-top: $space-v * 2
+
+  &:last-child
+    border: 0
+    padding-bottom: $space-v
 
 //
-// Base
-// -----------------------------------------------------------------------------
+  Base
+  -----------------------------------------------------------------------------
 
-// Colors
-.colors
+//
+  Colors
+  ------
 
+.colors-styleguide
+  margin-bottom: $space-v
 
-// Sizes
+  .color
+    display: inline-block
+    height: $space-v * 2
+    line-height: $space-v *2
+    margin-right: 10px
+    text-align: center
+    width: 100px
 
-// Demo grid
-.grid,
-.grid-column
+  .black
+    background: $gray-void
+    color: #fff
+  .gray-void
+    background: $gray-void
+    color: #fff
+  .gray-shale
+    background: $gray-shale
+    color: #fff
+  .gray-steel
+    background: $gray-steel
+    color: #fff
+  .gray-silver
+    background: $gray-silver
+  .gray-rain
+    background: $gray-rain
+  .gray-smoke
+    background: $gray-smoke
+  .gray-fog
+    background: $gray-fog
+  .white
+    background: $white
+
+//
+  Grid
+  ----
+
+.grid-styleguide
   background: rgba(255, 0, 0, .05)
 
-.grid-row
-  margin: 10px 0
+  .grid-column
+    background: rgba(255, 0, 0, .05)
 
-.grid-column
-  height: 40px
-  line-height: 40px
-  text-align: center
+  .grid-row
+    margin: $space-v 0
 
-.grid-column-1-of-12
-  +grid(1)
+  .grid-column
+    height: $space-v * 2
+    line-height: $space-v * 2
+    text-align: center
 
-.grid-column-3-of-12
-  +grid(3)
+  .grid-column-1-of-12
+    +grid(1)
 
-// Demo backgrounds
-.noise-png
-  background: #fee url(noise-png())
-  padding: 20px
+  .grid-column-3-of-12
+    +grid(3)
+
+//
+  Utility
+  -----------
+
+@import sprites/puppy/*.png
+@import sprites/puppy_2x/*.png
 
 .retina-background
   +background-image-retina("example", ".png")
   height: 100px
-
-// Demo sprites
-@import sprites/puppy/*.png
-@import sprites/puppy_2x/*.png
+  margin-bottom: $space-v*4 - 100px
 
 .retina-sprites
   +all-retina-sprites($puppy-sprites, $puppy_2x-sprites)
+  font-size: 0
+  line-height: 0
+  margin-bottom: $space-v*4 - 100px
 
   .sprite
     display: inline-block
     height: 100px
     margin-right: 10px
     width: 100px
+
+.noise-png
+  background: #fee url(noise-png())
+  height: $space-v * 2
+
+//
+  Vertical Rhythm
+
+.block-styleguide
+  background: $color-background
+  margin-top: $space-v
+  padding: $space-v $space-h

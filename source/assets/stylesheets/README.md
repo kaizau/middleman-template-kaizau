@@ -19,8 +19,8 @@
 
 **Variable Names**
 
-* 2-stage variables: value (`$gray-dark: #444`) and usage (`$color-heading: $gray-dark`)
-* Usage variables include the name of their property (`$border-radius-alert`)
+* 2-stage color variables: value (`$gray-dark: #444`) and usage (`$color-heading: $gray-dark`)
+* Variables should start with their property when possible (`$border-radius-alert`)
 
 ### Folder Structure
 

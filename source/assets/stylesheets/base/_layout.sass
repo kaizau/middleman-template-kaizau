@@ -1,30 +1,30 @@
 //
-// Block
-// -----------------------------------------------------------------------------
+  Containers
+  -----------------------------------------------------------------------------
 
-.block
+.section
   @extend %clearfix
-
-//
-// Container
-// -----------------------------------------------------------------------------
+  width: 100%
 
 .container
   @extend %clearfix
   margin: 0 auto
 
   // Fluid width
-  max-width: $screen_lg
+  max-width: 1200px
   padding: 0 5%
   width: 100%
 
   // Fixed width
-  // padding: 0 $horizontal;
-  // width: $laptop - ($horizontal*2);
+  // padding: 0 $space-h;
+  // width: 1000px - ($space-h * 2);
+
+.block
+  @extend %clearfix
 
 //
-// Grid
-// -----------------------------------------------------------------------------
+  Grid
+  -----------------------------------------------------------------------------
 
 $grid-columns: 12
 $grid-column-width: 80% / $grid-columns

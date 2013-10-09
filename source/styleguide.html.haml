@@ -1,6 +1,6 @@
 ---
 title: Style Guide
-page_id: style-guide
+page_id: styleguide
 ---
 
 - content_for :meta do
@@ -9,26 +9,23 @@ page_id: style-guide
 - content_for :stylesheets do
   = stylesheet_link_tag :styleguide
 
-%section.container
-  %header.header
-    %h1 Base
+%section.container.container-styleguide
+  %h1 Base
 
   %h2 Colors
-  .colors
-    .color.c-gray-
-    .color.c-gray-
-    .color.c-gray-
-    .color.c-gray-
-    .color.c-gray-
-
-  %h2 Sizes
-  .sizes
-    .size.s1
-    .size.s1
-    .size.s1
+  .colors-styleguide
+    .color.black .black
+    .color.gray-void .gray-void
+    .color.gray-shale .gray-shale
+    .color.gray-steel .gray-steel
+    .color.gray-silver .gray-silver
+    .color.gray-rain .gray-rain
+    .color.gray-smoke .gray-smoke
+    .color.gray-fog .gray-fog
+    .color.white .white
 
   %h2 Grid
-  .grid
+  .grid.grid-styleguide
     .grid-row
       .grid-column.grid-column-1-of-12 1
       .grid-column.grid-column-1-of-12 2
@@ -48,9 +45,8 @@ page_id: style-guide
       .grid-column.grid-column-3-of-12 3
       .grid-column.grid-column-3-of-12 4
 
-%section.container
-  %header.header
-    %h1 Common Tags
+%section.container.container-styleguide
+  %h1 Common Tags
 
   %h1 Heading 1
   %p= lorem.sentences 3
@@ -74,35 +70,13 @@ page_id: style-guide
   %h4 Heading 4
   %p= lorem.sentences 3
   %blockquote= lorem.paragraph
-
-  %h5 Heading 5
   %p= lorem.sentences 3
 
-%section.container
-  %header.header
-    %h1 Modules
+%section.container.container-styleguide
+  %h1 Modules
 
-  %h2 Header
-  %h2 Group
-  %h2 Button
   %h2 Form Elements
-  %h2 Navs
-
-  %h2 Code Block
-  %p= lorem.sentences 3
-  = code_block "javascript" do
-    :plain
-      var map;
-      function initialize() {
-        var mapOptions = {
-          zoom: 8,
-          center: new google.maps.LatLng(-34.397, 150.644),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-      }
-
-      google.maps.event.addDomListener(window, 'load', initialize);
+  %p ...
 
   %h2 Table
   %p= lorem.sentences 3
@@ -128,9 +102,25 @@ page_id: style-guide
         %td Cell
         %td Cell
 
-%section.container
+  %h2 Code Block
+  %p= lorem.sentences 3
+  = code_block "javascript" do
+    :plain
+      var map;
+      function initialize() {
+        var mapOptions = {
+          zoom: 8,
+          center: new google.maps.LatLng(-34.397, 150.644),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+%section.container.container-styleguide
   %header.header
-    %h1 Utilities
+    %h1 Helpers
 
   %h2 Retina Background
   .retina-background
@@ -144,10 +134,10 @@ page_id: style-guide
   %h2 Placeholder Background Noise
   %p.noise-png
 
-%section.container
+%section.container.container-styleguide
   %header.header
     %h1 Vertical Rhythm
 
-  %div(style="background: #eee; padding: 12px;")
+  .block.block-styleguide
     %p An example to show auto-adjusting vertical rhythm within padded blocks.
     %p= lorem.sentence
