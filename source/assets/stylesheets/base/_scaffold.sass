@@ -33,18 +33,26 @@ h1,
 h2,
 h3,
 h4
-  font: normal #{$font-size-huge}/#{$line-height * 2} $font-family-sans
+  font: normal #{$font-size-huge}/1 $font-family-sans
+
+h1
+  line-height: ceil($font-size-huge*1.2)
+  padding-top: $line-height*2 - ceil($font-size-huge*1.2)
 
 h2
   font-size: $font-size-headline
+  line-height: ceil($font-size-headline*1.2)
+  padding-top: $line-height*2 - ceil($font-size-headline*1.2)
 
 h3
   font-size: $font-size-tagline
+  line-height: ceil($font-size-tagline*1.2)
+  padding-top: $line-height*2 - ceil($font-size-tagline*1.2)
 
 h4
-  font-size: $font-size-body
-  font-weight: bold
+  font-size: $font-size-medium
   line-height: $line-height
+  padding-top: $line-height
 
 a
   color: $color-anchor
@@ -68,6 +76,12 @@ blockquote
   font-family: $font-family-serif
   margin-left: $space-h
   margin-right: $space-h
+
+code
+  background: $white
+  border: 1px solid $color-border
+  border-radius: $border-radius
+  padding: 1px 3px
 
 audio,
 canvas,

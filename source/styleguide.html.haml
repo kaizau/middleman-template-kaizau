@@ -17,8 +17,8 @@ page_id: styleguide
     - %w|black gray-void gray-shale gray-steel gray-silver gray-rain gray-smoke gray-fog white|.each do |color|
       %div(class="color #{color}") .#{color}
 
-  %h2 Grid <small>(width, position)</small>
-  .grid.grid-styleguide
+  %h2 Grid <em>(width, position)</em>
+  .grid-styleguide
     .grid-row
       - 12.times do |i|
         %div(class="grid-column grid-1-#{i}") 1, #{i}
@@ -33,29 +33,37 @@ page_id: styleguide
 %section.container.container-styleguide
   %h1 Common Tags
 
-  %h1 Heading 1
-  %p= lorem.sentences 3
-  %p Text with an #{link_to "inline link"}.
-  %p Text with a #{link_to "button", "#", :class => "button"} in it.
+  .grid-row
+    .grid-column.grid-3-0
+      %h1 Heading 1
+      %p= lorem.sentence
+      %p Text with an #{link_to "inline link"}.
+      %p Text with a #{link_to "button", "#", :class => "button"} in it.
+      .block.block-styleguide
+        %p This <code>.block</code> respects the vertical rhythm.
+      %p= lorem.sentence
 
-  %h2 Heading 2
-  %p= lorem.sentences 3
-  %ul
-    - 3.times do
-      %li= lorem.sentence
-  %p= lorem.sentences 3
+    .grid-column.grid-3-3
+      %h2 Heading 2
+      %p= lorem.sentence
+      %ul
+        - 3.times do
+          %li= lorem.sentence
+      %p= lorem.sentence
 
-  %h3 Heading 3
-  %p= lorem.sentences 3
-  %ol
-    - 3.times do
-      %li= lorem.sentence
-  %p= lorem.sentences 3
+    .grid-column.grid-3-6
+      %h3 Heading 3
+      %p= lorem.sentence
+      %ol
+        - 3.times do
+          %li= lorem.sentence
+      %p= lorem.sentence
 
-  %h4 Heading 4
-  %p= lorem.sentences 3
-  %blockquote= lorem.paragraph
-  %p= lorem.sentences 3
+    .grid-column.grid-3-9
+      %h4 Heading 4
+      %p= lorem.sentences 2
+      %blockquote= lorem.sentence
+      %p= lorem.sentences 2
 
 %section.container.container-styleguide
   %h1 Elements
@@ -74,47 +82,50 @@ page_id: styleguide
   %h1 Modules
 
   %h2 Form Elements
-  %p ...
+  %p Some text that might be aligned
 
-  %h2 Table
-  %p= lorem.sentences 3
-  %table.table
-    %thead
-      %tr
-        %th The
-        %th Table
-        %th Header
-    -# <tfoot> above <tbody> for performance
-    %tfoot
-      %tr
-        %td The
-        %td Table
-        %td Footer
-    %tbody
-      %tr
-        %td Cell
-        %td Cell
-        %td Cell
-      %tr
-        %td Cell
-        %td Cell
-        %td Cell
+  .grid-row
+    .grid-column.grid-6-0
+      %h2 Table
+      %p= lorem.sentences 3
+      %table.table
+        %thead
+          %tr
+            %th The
+            %th Table
+            %th Header
+        -# <tfoot> above <tbody> for performance
+        %tfoot
+          %tr
+            %td The
+            %td Table
+            %td Footer
+        %tbody
+          %tr
+            %td Cell
+            %td Cell
+            %td Cell
+          %tr
+            %td Cell
+            %td Cell
+            %td Cell
 
-  %h2 Code Block
-  %p= lorem.sentences 3
-  = code_block "javascript" do
-    :plain
-      var map;
-      function initialize() {
-        var mapOptions = {
-          zoom: 8,
-          center: new google.maps.LatLng(-34.397, 150.644),
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-      }
+    .grid-column.grid-6-6
+      %h2 Code Block
+      %p= lorem.sentences 3
+      = code_block "javascript" do
+        :plain
+          var map;
+          function initialize() {
+            var mapOptions = {
+              zoom: 8,
+              center: new google.maps.LatLng(-34.397, 150.644),
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+          }
 
-      google.maps.event.addDomListener(window, 'load', initialize);
+          google.maps.event.addDomListener(window, 'load', initialize);
 
 %section.container.container-styleguide
   %header.header
@@ -131,11 +142,3 @@ page_id: styleguide
 
   %h2 Placeholder Background Noise
   %p.noise-png
-
-%section.container.container-styleguide
-  %header.header
-    %h1 Vertical Rhythm
-
-  .block.block-styleguide
-    %p An example to show auto-adjusting vertical rhythm within padded blocks.
-    %p= lorem.sentence
