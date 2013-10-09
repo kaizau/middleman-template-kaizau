@@ -17,7 +17,7 @@ page_id: styleguide
     - %w|black gray-void gray-shale gray-steel gray-silver gray-rain gray-smoke gray-fog white|.each do |color|
       %div(class="color #{color}") .#{color}
 
-  %h2 Grid <em>(width, position)</em>
+  %h2 Grid <small>(width, position)</small>
   .grid-styleguide
     .grid-row
       - 12.times do |i|
@@ -36,12 +36,13 @@ page_id: styleguide
   .grid-row
     .grid-column.grid-3-0
       %h1 Heading 1
-      %p= lorem.sentence
-      %p Text with an #{link_to "inline link"}.
+      %p Text with an #{link_to "inline link"} in it.
       %p Text with a #{link_to "button", "#", :class => "button"} in it.
-      .block.block-styleguide
-        %p This <code>.block</code> respects the vertical rhythm.
-      %p= lorem.sentence
+      %p This is <em>emphasized</em> text.
+      %p This is <strong>strong</strong> text.
+      %p This is super<sup>[1]</sup>. This is not<sub>[2]</sub>.
+      %p This is <small>small</small> text.
+      %p Here's a <code>&lt;code&gt;</code> tag.
 
     .grid-column.grid-3-3
       %h2 Heading 2
@@ -61,9 +62,11 @@ page_id: styleguide
 
     .grid-column.grid-3-9
       %h4 Heading 4
-      %p= lorem.sentences 2
+      %p= lorem.sentence
       %blockquote= lorem.sentence
-      %p= lorem.sentences 2
+      .block.block-styleguide
+        %p This <code>.block</code> respects the vertical rhythm.
+      %p= lorem.sentence
 
 %section.container.container-styleguide
   %h1 Elements

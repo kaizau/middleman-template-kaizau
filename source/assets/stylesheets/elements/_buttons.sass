@@ -3,7 +3,7 @@
   -----------------------------------------------------------------------------
 
 .button
-  $font-size: $font-size-micro
+  $font-size: $font-size-small
   $padding: 4px
 
   border-radius: $border-radius
@@ -56,6 +56,10 @@
   Variations
   -----------------------------------------------------------------------------
 
+//
+  Large Button
+  ------------
+
 .button_large
   $font-size: $font-size-medium
 
@@ -68,8 +72,13 @@
   margin-top: 0
   padding: (($line-height*2 - $font-size - 1px) / 2) $space-h
 
+//
+  Button Group
+  ------------
+
 .button-group
-  @extend .block
+  +block
+  +clearfix
   min-height: $line-height
 
   .button

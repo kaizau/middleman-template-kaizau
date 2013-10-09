@@ -1,6 +1,6 @@
-# Pre-Launch Checklist
+## Pre-Launch Checklist
 
-## Content + Assets
+### Content + Assets
 
 [ ] Spellcheck copy
 [ ] Remove placeholder content
@@ -10,7 +10,7 @@
 [ ] Favicon (32x32)
 [ ] `apple-touch-icon-precomposed.png` (152×152)
 
-## Functionality
+### Functionality
 
 [ ] Test links
 [ ] 404 error pages
@@ -19,7 +19,7 @@
 [ ] Test on all browsers
 [ ] Test on mobile
 
-## Miscellaneous
+### Miscellaneous
 
 [ ] XML sitemap
 [ ] Google Analytics events and goals
