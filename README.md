@@ -2,4 +2,4 @@
 
 Install to `~/.middleman/ezyz` and use with `middleman init -T ezyz`.
 
-Documentation lives in the README.md inside each directory.
+Additional documentation can be found in README.md files inside `/source`, `/source/assets/stylesheets`, etc.
