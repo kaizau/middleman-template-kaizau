@@ -11,21 +11,24 @@ fieldset legend
   font-size: $font-size-small
   font-weight: bold
 
-fieldset legend
-  width: 100%
-
+// Line break
+.field label,
 fieldset legend,
-.field-text label,
-.field-textarea label,
-.field-select label,
 .field-text input,
 .field-textarea textarea,
-.field-select select,
-  // Fake line break
+.field-select select
   clear: both
   float: left
 
-  // Vertical rhythm
+// Clear floated subfields
+fieldset legend
+  width: 100%
+
+// Align label / legend to baseline
+fieldset legend,
+.field-text label,
+.field-textarea label,
+.field-select label
   line-height: 1.35
   padding-top: $line-height - $font-size-small*1.35
 
@@ -48,30 +51,33 @@ $padding-text-input: 4px
     background: $white
     border: 1px solid $color-border
     border-radius: $border-radius
+    +box-shadow(inset 0 0 2px $shadow-rgba)
     padding: $padding-text-input/2 4px
     width: 100%
 
 .field-textarea
-  min-height: $line-height*3
+  min-height: $line-height*4
 
   textarea
-    min-height: $line-height*2 - $padding-text-input
+    min-height: $line-height*3 - $padding-text-input
 
 .field-text_small
   input
     width: 20%
 
 .field-textarea_large
-  min-height: $line-height*5
+  min-height: $line-height*6
 
   textarea
-    min-height: $line-height*4 - $padding-text-input
+    min-height: $line-height*5 - $padding-text-input
 
 //
-  Multiple-Field Text
-  -------------------
+  Multiple-Field
+  --------------
 
+// Can contain multiple .field or input elements
 fieldset.field-text
+  
   & > input,
   .field
     clear: none
@@ -106,6 +112,11 @@ fieldset.field-text
 .field-checkbox,
 .field-radio
   min-height: $line-height
+
+  // Preserve inline alignment
+  input, label
+    clear: none
+    float: none
 
   label
     font-weight: normal
