@@ -1,10 +1,6 @@
 //
-  Form Elements
-  -----------------------------------------------------------------------------
-
-//
   Structure
-  ---------
+  -----------------------------------------------------------------------------
 
 .field, 
 fieldset
@@ -34,8 +30,12 @@ fieldset legend,
   padding-top: $line-height - $font-size-small*1.35
 
 //
-  Text
-  ----
+  Fields
+  -----------------------------------------------------------------------------
+
+//
+  Text and Textarea
+  -----------------
 
 $padding-text-input: 4px
 
@@ -61,25 +61,36 @@ $padding-text-input: 4px
   input
     width: 20%
 
-fieldset.field-text
-  input
-    clear: none
-    margin-right: 2%
-
-    &:last-child
-      margin-right: 0
-
-.field-text_double input
-  width: 49%
-
-.field-text_triple input
-  width: 32%
-
 .field-textarea_large
   min-height: $line-height*5
 
   textarea
     min-height: $line-height*4 - $padding-text-input
+
+//
+  Multiple-Field Text
+  -------------------
+
+fieldset.field-text
+  & > input,
+  .field
+    clear: none
+    float: left
+    margin-right: 2%
+
+    &:last-child
+      margin-right: 0
+
+.field-text_double
+  & > input,
+  .field
+    width: 49%
+
+.field-text_triple
+  & > input,
+  .field
+    width: 32%
+
 
 //
   Select
