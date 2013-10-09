@@ -17,6 +17,8 @@
   = modernizr_scripts
 
   - if development?
+    = stylesheet_link_tag :grid_preview
+    = javascript_include_tag :grid_preview
     %meta(name='robots' content='noindex, nofollow')
   - else
     = partial :analytics

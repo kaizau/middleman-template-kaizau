@@ -22,4 +22,7 @@
         %p A #{link_to "sticky footer", "/sticky.html"} of variable height.
         %p= lorem.paragraphs 2
 
+  - if development?
+    = partial :grid_preview
+
 </html>

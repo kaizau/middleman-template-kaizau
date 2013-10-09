@@ -12,4 +12,7 @@
   = yield
   = yield_content :after_content
 
+  - if development?
+    = partial :grid_preview
+
 </html>

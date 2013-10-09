@@ -1,0 +1,16 @@
+/
+  Grid Preview
+  Configure columns to match number in assets/stylesheets/base/_grid.sass
+  Toggle by pressing "g"
+
+- columns = 12
+
+#grid-preview
+  #grid-preview-columns
+    .container
+      - columns.times do |i|
+        %div(class="grid-preview-column grid-preview-column-1-#{i}")
+
+  #grid-preview-rows
+    - 200.times do
+      .grid-preview-row
