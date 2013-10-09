@@ -40,17 +40,14 @@ $grid-gutter-width: 20% / ($grid-columns - 1)
 
 .grid-column
   float: left
-  margin-left: $grid-gutter-width / 2
-  margin-right: $grid-gutter-width / 2
+  margin-right: -100%
 
-  &:first-child
-    margin-left: 0
-
-  &:last-child
-    margin-right: 0
-
-@function grid($columns)
+@function grid-width($columns)
   @return ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1))
 
-=grid($columns)
-  width: grid($columns)
+@function grid-position($position)
+  @return grid-width($position) + $grid-gutter-width
+
+=grid($columns, $position)
+  margin-left: grid-position($position)
+  width: grid-width($columns)

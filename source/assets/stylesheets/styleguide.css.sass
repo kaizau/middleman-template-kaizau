@@ -64,22 +64,24 @@
 .grid-styleguide
   background: rgba(255, 0, 0, .05)
 
-  .grid-column
-    background: rgba(255, 0, 0, .05)
-
   .grid-row
     margin: $space-v 0
 
   .grid-column
+    background: rgba(255, 0, 0, .1)
     height: $space-v * 2
     line-height: $space-v * 2
     text-align: center
 
-  .grid-column-1-of-12
-    +grid(1)
-
-  .grid-column-3-of-12
-    +grid(3)
+  // Grid classes
+  $i: 0
+  @while $i < 12
+    $ii: 0
+    @while $ii < 12
+      .grid-#{$i}-#{$ii}
+        +grid($i, $ii)
+      $ii: $ii + 1
+    $i: $i + 1
 
 //
   Utility
