@@ -1,8 +1,7 @@
 //
-  Placeholders
+  Utility
   -----------------------------------------------------------------------------
 
-// Activates hasLayout
 %clearfix
   zoom: 1
   &:before, &:after
@@ -11,38 +10,41 @@
   &:after
     clear: both
 
-// A <ul> that sits flush to the left
-%naked-list
-  list-style: none
-  list-style-image: none
-  margin-bottom: 0
-  margin-left: 0
-
-// <li>s are inlined
-%inline-list
-  @extend %naked-list
-
-  li
-    display: inline-block
-    margin-right: $space-h
-    margin-bottom: 0
-    &:last-child
-      margin-right: 0
-
-// <li>s are floated horizontally
-%flat-list
+=clearfix
   @extend %clearfix
-  @extend %naked-list
 
-  li
-    float: left
-    margin-right: $space-h
-    margin-bottom: 0
-    &:last-child
-      margin-right: 0
+%hide-text
+  border: 0
+  color: transparent
+  font: 0 / 0 a
+  text-shadow: none
+
+=hide-text
+  @extend %hide-text
+
+// Screenreader safe hide
+%hide-visually
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+=hide-visually
+  @extend %hide-visually
+
+// Replace text with an image
+=replace-text($image)
+  +hide-text
+  +background(transparent image-url($image) no-repeat)
+  height: image-height($image)
+  width: image-width($image)
 
 //
-  Mixins
+  Retina
   -----------------------------------------------------------------------------
 
 // Retina background image
@@ -78,38 +80,21 @@ $retina-suffix: "_2x" !default
         background-position: 0 round(nth(sprite-position($map2x, $name), 2) / 2)
         background-size: image-width(sprite-file($map, $name)) auto
 
-// Hide text
-=hide-text
-  border: 0
-  color: transparent
-  font: 0 / 0 a
-  text-shadow: none
+//
+  Miscellaneous
+  -----------------------------------------------------------------------------
 
-// Replace text with an image
-=replace-text($image)
-  +hide-text
-  +background(transparent image-url($image) no-repeat)
-  height: image-height($image)
-  width: image-width($image)
+// A <ul> that sits flush to the left
+%naked-list
+  list-style: none
+  list-style-image: none
+  margin-bottom: 0
+  margin-left: 0
 
-// Screenreader safe hide
-=hide-visually
-  border: 0
-  clip: rect(0 0 0 0)
-  height: 1px
-  margin: -1px
-  overflow: hidden
-  padding: 0
-  position: absolute
-  width: 1px
+=naked-list
+  @extend %naked-list
 
-// Sexy ampersand style, typically applied to an .amp class
-=ampersand
-  font-family: Baskerville, Palatino, "Palatino Linotype", Constantia, serif !important
-  font-weight: normal
-  font-style: italic
-
-// Shortcut to add a background image from http://noisepng.com
+// Noise PNG from http://noisepng.com
 @function noise-png($intensity: 25, $opacity: 10, $mono: false, $size: 100)
   $url: "http://noisepng.com/#{$size}-#{$intensity}-#{$opacity}"
   @if $mono == true

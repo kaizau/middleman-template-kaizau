@@ -4,7 +4,7 @@
 @import compass
 @import base/config
 @import base/helpers
-@import base/layout
+@import base/grid
 
 .container-styleguide
   border-bottom: 1px solid $color-border
@@ -65,9 +65,11 @@
   background: rgba(255, 0, 0, .05)
 
   .grid-row
+    +grid-row
     margin: $space-v 0
 
   .grid-column
+    +grid-column
     background: rgba(255, 0, 0, .1)
     height: $space-v * 2
     line-height: $space-v * 2
