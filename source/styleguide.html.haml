@@ -5,7 +5,7 @@ page_id: styleguide
 
 - content_for :meta do
   %meta(name='robots' content='noindex, nofollow')
-  
+
 - content_for :stylesheets do
   = stylesheet_link_tag :styleguide
 
@@ -85,15 +85,87 @@ page_id: styleguide
   %h1 Modules
 
   %h2 Form Elements
-  %form
-    .input.input-text
-    .input.input-text.input-text_large
-    .input.input-text.input-text_small
+  %form.grid-row
+    .grid-column.grid-3-0
+      .input.input-text
+        = label_tag :text
+        = text_field_tag :text, :id => :text
+      .input.input-text.input_small
+        = label_tag :text_small
+        = text_field_tag :text_small, :id => :text_small
+      .input.input-text.input_large
+        = label_tag :text_large
+        = text_field_tag :text_large, :id => :text_large
+      .input.input-text.input_fluid
+        = label_tag :text_fluid
+        = text_field_tag :text_fluid, :id => :text_fluid
+      .input-group
+        = label_tag :text_group
+        .input.input-text
+          = text_field_tag :text_group, :id => :text_group
+        .input.input-text
+          = text_field_tag :text_group_2, :id => :text_group_2
+        .input.input-text
+          = text_field_tag :text_group_3, :id => :text_group_3
+      .input.input-textarea
+        = label_tag :textarea
+        = text_area_tag :textarea, :id => :textarea
 
-    .input-group
-      .input.input-text
-      .input.input-text
-      .input.input-text
+    .grid-column.grid-3-3
+      .input.input-select
+        = label_tag :select
+        %select(id="select" name="select")
+          %option(value="1") An okay option
+          %option(value="2") A good option
+          %option(value="3") A great option
+      .input.input-select
+        = label_tag :select_complex
+        %select(id="select_complex" name="select_complex")
+          %option
+          %option(value="0") The first option
+          %optgroup(label="First Group")
+            %option(value="1") An okay option
+            %option(value="2") A good option
+            %option(value="3") A great option
+          %optgroup(label="Second Group")
+            %option(value="4") A mediocre option
+            %option(value="5") A bad option
+            %option(value="6") A terrible option
+          %optgroup(label="Third Group" disabled="disabled")
+            %option(value="7") The best option
+            %option(value="8") The worst option
+      .input.input-checkbox
+        %label
+          = check_box_tag :checkbox, :id => :checkbox
+          Checkbox
+      .input-group
+        = label_tag :checkbox_group
+        .input.input-checkbox
+          %label
+            = check_box_tag :checkbox_group, :value => 1
+            Checkbox 1
+        .input.input-checkbox
+          %label
+            = check_box_tag :checkbox_group, :value => 2
+            Checkbox 2
+        .input.input-checkbox
+          %label
+            = check_box_tag :checkbox_group, :value => 3
+            Checkbox 3
+      .input-group
+        = label_tag :radio_group
+        .input.input-radio
+          %label
+            = radio_button_tag :radio_group, :value => 1
+            Radio Button 1
+        .input.input-radio
+          %label
+            = radio_button_tag :radio_group, :value => 2
+            Radio Button 2
+        .input.input-radio
+          %label
+            = radio_button_tag :radio_group, :value => 3
+            Radio Button 3
 
   .grid-row
     .grid-column.grid-6-0
@@ -112,14 +184,11 @@ page_id: styleguide
             %td Table
             %td Footer
         %tbody
-          %tr
-            %td Cell
-            %td Cell
-            %td Cell
-          %tr
-            %td Cell
-            %td Cell
-            %td Cell
+          - 5.times do
+            %tr
+              %td Cell
+              %td Cell
+              %td Cell
 
     .grid-column.grid-6-6
       %h2 Code Block

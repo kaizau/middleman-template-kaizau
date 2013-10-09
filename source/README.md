@@ -34,5 +34,5 @@
 
 See also:
 
-- <http://middlemanapp.com/templates/helpers/>
+- <http://middlemanapp.com/helpers/>
 - <http://www.padrinorb.com/api/Padrino/Helpers.html>
