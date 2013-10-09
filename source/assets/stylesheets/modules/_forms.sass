@@ -1,7 +1,101 @@
-fieldset
-  border: 0
-  margin: 0
-  padding: 0
+//
+  Form Elements
+  -----------------------------------------------------------------------------
 
-textarea
-  resize: vertical
+//
+  Structure
+  ---------
+
+.field, 
+fieldset
+  +clearfix
+
+.field label,
+fieldset legend
+  font-size: $font-size-small
+  font-weight: bold
+
+fieldset legend
+  width: 100%
+
+fieldset legend,
+.field-text label,
+.field-textarea label,
+.field-select label,
+.field-text input,
+.field-textarea textarea,
+.field-select select,
+  // Fake line break
+  clear: both
+  float: left
+
+  // Vertical rhythm
+  line-height: 1.35
+  padding-top: $line-height - $font-size-small*1.35
+
+//
+  Text
+  ----
+
+$padding-text-input: 4px
+
+.field-text,
+.field-textarea
+  min-height: $line-height*2
+
+  input,
+  textarea
+    background: $white
+    border: 1px solid $color-border
+    border-radius: $border-radius
+    padding: $padding-text-input/2 4px
+    width: 100%
+
+.field-textarea
+  min-height: $line-height*3
+
+  textarea
+    min-height: $line-height*2 - $padding-text-input
+
+.field-text_small
+  input
+    width: 20%
+
+fieldset.field-text
+  input
+    clear: none
+    margin-right: 2%
+
+    &:last-child
+      margin-right: 0
+
+.field-text_double input
+  width: 49%
+
+.field-text_triple input
+  width: 32%
+
+.field-textarea_large
+  min-height: $line-height*5
+
+  textarea
+    min-height: $line-height*4 - $padding-text-input
+
+//
+  Select
+  ------
+
+.field-select
+  min-height: $line-height*2
+
+//
+  Checkbox and Radio
+  ------------------
+
+.field-checkbox,
+.field-radio
+  min-height: $line-height
+
+  label
+    font-weight: normal
+    line-height: 1

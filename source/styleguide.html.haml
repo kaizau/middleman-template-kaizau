@@ -87,38 +87,34 @@ page_id: styleguide
   %h2 Form Elements
   %form.grid-row
     .grid-column.grid-3-0
-      .input.input-text
+      .field.field-text
         = label_tag :text
         = text_field_tag :text, :id => :text
-      .input.input-text.input_small
+      .field.field-text.field-text_small
         = label_tag :text_small
         = text_field_tag :text_small, :id => :text_small
-      .input.input-text.input_large
-        = label_tag :text_large
-        = text_field_tag :text_large, :id => :text_large
-      .input.input-text.input_fluid
-        = label_tag :text_fluid
-        = text_field_tag :text_fluid, :id => :text_fluid
-      .input-group
-        = label_tag :text_group
-        .input.input-text
-          = text_field_tag :text_group, :id => :text_group
-        .input.input-text
-          = text_field_tag :text_group_2, :id => :text_group_2
-        .input.input-text
-          = text_field_tag :text_group_3, :id => :text_group_3
-      .input.input-textarea
+      = field_set_tag "Text (double)", :class => "field-text field-text_double" do 
+        = text_field_tag :text_double, :id => :text_double
+        = text_field_tag :text_double_2, :id => :text_double_2
+      = field_set_tag "Text (triple)", :class => "field-text field-text_triple" do 
+        = text_field_tag :text_triple, :id => :text_triple
+        = text_field_tag :text_triple_2, :id => :text_triple_2
+        = text_field_tag :text_triple_3, :id => :text_triple_3
+      .field.field-textarea
         = label_tag :textarea
         = text_area_tag :textarea, :id => :textarea
+      .field.field-textarea.field-textarea_large
+        = label_tag :textarea_large
+        = text_area_tag :textarea_large, :id => :textarea_large
 
     .grid-column.grid-3-3
-      .input.input-select
+      .field.field-select
         = label_tag :select
         %select(id="select" name="select")
           %option(value="1") An okay option
           %option(value="2") A good option
           %option(value="3") A great option
-      .input.input-select
+      .field.field-select
         = label_tag :select_complex
         %select(id="select_complex" name="select_complex")
           %option
@@ -134,35 +130,33 @@ page_id: styleguide
           %optgroup(label="Third Group" disabled="disabled")
             %option(value="7") The best option
             %option(value="8") The worst option
-      .input.input-checkbox
+      .field.field-checkbox
         %label
           = check_box_tag :checkbox, :id => :checkbox
           Checkbox
-      .input-group
-        = label_tag :checkbox_group
-        .input.input-checkbox
+      = field_set_tag "Checkbox Group" do
+        .field.field-checkbox
           %label
             = check_box_tag :checkbox_group, :value => 1
             Checkbox 1
-        .input.input-checkbox
+        .field.field-checkbox
           %label
             = check_box_tag :checkbox_group, :value => 2
             Checkbox 2
-        .input.input-checkbox
+        .field.field-checkbox
           %label
             = check_box_tag :checkbox_group, :value => 3
             Checkbox 3
-      .input-group
-        = label_tag :radio_group
-        .input.input-radio
+      = field_set_tag "Radio Button Group" do
+        .field.field-radio
           %label
             = radio_button_tag :radio_group, :value => 1
             Radio Button 1
-        .input.input-radio
+        .field.field-radio
           %label
             = radio_button_tag :radio_group, :value => 2
             Radio Button 2
-        .input.input-radio
+        .field.field-radio
           %label
             = radio_button_tag :radio_group, :value => 3
             Radio Button 3
