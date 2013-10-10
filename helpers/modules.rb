@@ -19,7 +19,7 @@ def modernizr_scripts
   scripts = current_page.data.javascripts || data.global.javascripts
 
   if scripts.is_a?(Array)
-    scripts.map! do |script|
+    scripts = scripts.map do |script|
       if script[0,2] == "//" || script[0,7] == "http://" || script[0,8] == "https://"
         # use as is
       elsif script[0] == "!"
