@@ -3,8 +3,8 @@
   -----------------------------------------------------------------------------
 
 $grid-columns: 12
-$grid-column-width: 80% / $grid-columns
-$grid-gutter-width: 20% / ($grid-columns - 1)
+$grid-column-width: 78% / $grid-columns
+$grid-gutter-width: 22% / ($grid-columns - 1)
 
 @function grid-width($columns)
   @return ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1))
@@ -15,9 +15,6 @@ $grid-gutter-width: 20% / ($grid-columns - 1)
 %grid-row
   +clearfix
   clear: both
-  display: block
-  text-align: left
-  width: 100%
 
 %grid-column
   float: left

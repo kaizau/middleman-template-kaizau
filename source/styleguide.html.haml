@@ -126,6 +126,8 @@ page_id: styleguide
             %optgroup(label="Third Group" disabled="disabled")
               %option(value="7") The best option
               %option(value="8") The worst option
+        %h3 A title inside the form
+        %p Some text inside the form
         .field.field-checkbox
           %label
             = check_box_tag :checkbox, :id => :checkbox
@@ -174,7 +176,7 @@ page_id: styleguide
   .grid-row
     .grid-column.grid-6-0
       %h2 Table
-      %p= lorem.sentences 3
+      %p= lorem.sentence
       %table.table
         %thead
           %tr
@@ -193,10 +195,11 @@ page_id: styleguide
               %td Cell
               %td Cell
               %td Cell
+      %p= lorem.sentence
 
     .grid-column.grid-6-6
       %h2 Code Block
-      %p= lorem.sentences 3
+      %p= lorem.sentence
       = code_block "javascript" do
         :plain
           var map;
@@ -210,6 +213,7 @@ page_id: styleguide
           }
 
           google.maps.event.addDomListener(window, 'load', initialize);
+      %p= lorem.sentence
 
 %section.container.container-styleguide
   %header.header
