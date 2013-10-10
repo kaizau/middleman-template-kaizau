@@ -8,12 +8,17 @@
 @import base/grid
 
 #grid-preview
+  +background(linear-gradient(transparent $line-height - 1px, rgba(255, 0, 0, .25) $line-height - 1px)) 
+  +background-size($line-height $line-height)
+  bottom: 0
   display: none
-  height: 100%
+  left: 0
   pointer-events: none
+  position: absolute
+  right: 0
+  top: 0
 
 #grid-preview-columns
-  +grid-row
   height: 100%
   left: 0
   position: fixed
@@ -21,12 +26,18 @@
   width: 100%
 
   .container
+    +grid-row
     height: 100%
 
   .grid-preview-column
     +grid-column
     background: rgba(255, 0, 0, .1)
+    color: rgba(255, 0, 0, .5)
+    font-size: $font-size-medium
+    font-weight: bold
     height: 100%
+    padding-top: $line-height
+    text-align: center
 
   // Grid classes
   $i: 0
@@ -37,13 +48,3 @@
         +grid($i, $ii)
       $ii: $ii + 1
     $i: $i + 1
-
-#grid-preview-rows
-  left: 0
-  position: absolute
-  top: 0
-  width: 100%
-  
-  .grid-preview-row
-    box-shadow: 0 -1px 0 rgba(255, 0, 0, .25)
-    height: $line-height

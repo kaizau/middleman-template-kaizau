@@ -5,6 +5,11 @@ javascripts: ['jquery', 'application']
 ---
 
 .container
-  %h1(style='margin:0;padding:50px 0 0;text-align:center;') Aloha world!
-  %p= link_to "Style Guide", "/styleguide.html"
-  %p= link_to "Documentation", "https://github.com/ezYZ/middleman-template-ezyz"
+  -# This span serves no purpose except to push %h1 away from its :first-child, marginless state
+  %span
+  %h1(style="text-align: center;") Aloha world!
+  %ul
+    %li= link_to "Style Guide", "/styleguide.html"
+    %li= link_to "Github", "https://github.com/ezYZ/middleman-template-ezyz"
+    %li= link_to "Middleman", "http://middlemanapp.com/helpers/"
+    %li= link_to "Padrino", "http://www.padrinorb.com/api/Padrino/Helpers.html"

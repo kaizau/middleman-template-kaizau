@@ -19,10 +19,10 @@
 
     #page-footer
       .container
-        %p A #{link_to "sticky footer", "/sticky.html"} of variable height.
-        %p= lorem.paragraphs 2
+        %p A sticky footer of variable height.
+        %p= lorem.paragraph
 
-  - if development?
-    = partial :grid_preview
+    - if development?
+      = partial :grid_preview
 
 </html>

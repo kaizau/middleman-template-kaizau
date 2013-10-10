@@ -9,8 +9,4 @@
   #grid-preview-columns
     .container
       - columns.times do |i|
-        %div(class="grid-preview-column grid-preview-column-1-#{i}")
-
-  #grid-preview-rows
-    - 200.times do
-      .grid-preview-row
+        %div(class="grid-preview-column grid-preview-column-1-#{i}") #{i}
