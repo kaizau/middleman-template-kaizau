@@ -150,9 +150,34 @@ small, code, sup, sub
   width: 100%
 
   // Fixed width
-  // padding: 0 $space-h;
-  // width: 1000px - ($space-h * 2);
+  //padding: 0 $space-h
+  //width: 1000px
 
 .block
   +block
   +clearfix
+ 
+//
+  Sticky Footer
+  -----------------------------------------------------------------------------
+
+html, body, #page
+  height: 100%
+  width: 100%
+
+#page
+  display: table
+  position: relative
+
+#page-wrap
+  display: table-row
+  height: 100%
+
+#page-content
+  display: table-cell
+  min-height: 100%
+  padding-bottom: $space-v
+
+#page-footer
+  background: $color-background
+  padding: $space-v 0
