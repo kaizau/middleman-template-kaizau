@@ -3,14 +3,17 @@
   -----------------------------------------------------------------------------
 
 $grid-columns: 12
-$grid-column-width: 78% / $grid-columns
+
+// Add up to 100%
+$grid-column-width: 72% / $grid-columns
+$grid-outer-width: 6%
 $grid-gutter-width: 22% / ($grid-columns - 1)
 
 @function grid-width($columns)
   @return ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1))
 
 @function grid-position($position)
-  @return grid-width($position) + $grid-gutter-width
+  @return grid-width($position) + $grid-gutter-width + $grid-outer-width/2
 
 %grid-row
   +clearfix
