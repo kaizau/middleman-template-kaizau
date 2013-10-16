@@ -7,6 +7,10 @@
 @import base/helpers
 @import base/grid
 
+html, body, #page
+  height: 100%
+  position: relative
+
 #grid-preview
   +background(linear-gradient(transparent $line-height - 1px, rgba(255, 0, 0, .25) $line-height - 1px)) 
   +background-size($line-height $line-height)
@@ -28,8 +32,9 @@
   top: 0
   width: 100%
 
-  .container
+  .section-content
     +grid-row
+    background: rgba(255, 0, 0, .05)
     height: 100%
 
   .grid-preview-column

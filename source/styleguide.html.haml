@@ -9,7 +9,7 @@ page_id: styleguide
 - content_for :stylesheets do
   = stylesheet_link_tag :styleguide
 
-%section.container.container-styleguide
+%section.section-content.section-styleguide
   %h1 Base
 
   %h2 Colors
@@ -32,7 +32,7 @@ page_id: styleguide
         - 12.times do |i|
           %div(class="grid-column grid-1-#{i}")
 
-%section.container.container-styleguide
+%section.section-content.section-styleguide
   %h1 Common Tags
 
   .grid-row
@@ -70,7 +70,7 @@ page_id: styleguide
         %p This <code>.block</code> respects the vertical rhythm.
       %p= lorem.sentence
 
-%section.container.container-styleguide
+%section.section-content.section-styleguide
   %h1 Elements
 
   .grid-row
@@ -170,7 +170,7 @@ page_id: styleguide
         %a.button(href="#") Middle
         %a.button(href="#") Right
 
-%section.container.container-styleguide
+%section.section-content.section-styleguide
   %h1 Modules
 
   .grid-row
@@ -215,7 +215,7 @@ page_id: styleguide
           google.maps.event.addDomListener(window, 'load', initialize);
       %p= lorem.sentence
 
-%section.container.container-styleguide
+%section.section-content.section-styleguide
   %header.header
     %h1 Helpers
 
