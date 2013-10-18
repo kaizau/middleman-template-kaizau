@@ -2,47 +2,28 @@
   Grid
   -----------------------------------------------------------------------------
 
+//
+  Config
+  ------
+
 $grid-columns: 12
-
-// Add up to 100%
-$grid-ratio-columns: 70%
+$grid-ratio-columns: 78%
+$grid-ratio-gutters: 22%
 $grid-ratio-outer: 10%
-$grid-ratio-gutters: 20%
 
-// Defaults
-$grid-gutter-width: $grid-ratio-gutters / ($grid-columns - 1)
-$grid-column-width: $grid-ratio-columns / $grid-columns
-$grid-outer-width: $grid-ratio-outer / 2
+//
+  Mixins
+  ------
 
-@function grid-gutter-nested-ratio($columns, $nested)
-  $nested-width: grid-column-width($nested, $grid-columns, $grid-columns)
-  $nested-gutters: ($nested - 1) * $grid-gutter-width
-  @return $nested-gutters / $nested-width * 100% / ($nested / $columns)
+=grid-row($type: default)
+  +clearfix
 
-@function grid-gutter-width($columns, $nested)
-  @if $nested == $grid-columns
-    @return $grid-gutter-width
+  @if $type == default
+    padding-left: $grid-outer-width
+    padding-right: $grid-outer-width
   @else
-    @return grid-gutter-nested-ratio($columns, $nested) / ($columns - 1)
-
-@function grid-column-width($span, $columns, $nested)
-  $gutter-width: $grid-ratio-gutters
-  $column-width: $grid-ratio-columns
-  @if $nested != $grid-columns
-    $gutter-width: grid-gutter-nested-ratio($columns, $nested)
-    $column-width: 100% - $gutter-width
-  $gutter-width: $gutter-width / ($columns - 1) * ($span - 1)
-  $column-width: $column-width / $columns * $span
-  @return $column-width + $gutter-width
-
-=grid-row
-  +clearfix
-
-  > *:first-child
-    margin-left: $grid-ratio-outer / 2
-
-=grid-row-nested
-  +clearfix
+    padding-left: 0
+    padding-right: 0
 
   > *:first-child
     margin-left: 0
@@ -50,18 +31,44 @@ $grid-outer-width: $grid-ratio-outer / 2
 =grid-column
   float: left
 
-=grid($span, $columns: $grid-columns, $nested: $grid-columns)
+=grid($span, $columns: $grid-columns, $original: $grid-columns)
   +grid-column
-  margin-left: grid-gutter-width($columns, $nested)
-  width: grid-column-width($span, $columns, $nested)
+  margin-left: grid-gutter-width($columns, $original)
+  width: grid-column-width($span, $columns, $original)
 
-=grid-push($span, $columns: $grid-columns, $nested: $grid-columns)
-  $gutter-width: grid-gutter-width($columns, $nested)
-  $width: grid-column-width($span, $columns, $nested) + $gutter-width
+=grid-push($span, $columns: $grid-columns, $original: $grid-columns)
+  $gutter-width: grid-gutter-width($columns, $original)
+  $width: grid-column-width($span, $columns, $original) + $gutter-width
   margin-left: $width + $gutter-width
 
   &:first-child
-    @if $nested == $grid-columns
-      margin-left: $width + $grid-outer-width
-    @else
-      margin-left: $width
+    margin-left: $width !important
+
+//
+  Calculations
+  ------------
+
+$grid-gutter-width: $grid-ratio-gutters / ($grid-columns - 1)
+$grid-column-width: $grid-ratio-columns / $grid-columns
+$grid-outer-width: $grid-ratio-outer / 2
+
+@function grid-ratio-gutters-partial($columns, $original)
+  $partial-width: grid-column-width($original, $grid-columns, $grid-columns)
+  $partial-gutters: ($original - 1) * $grid-gutter-width
+  @return $partial-gutters / $partial-width * 100% / ($original / $columns)
+
+@function grid-gutter-width($columns, $original)
+  @if $original == $grid-columns
+    @return $grid-gutter-width
+  @else
+    @return grid-ratio-gutters-partial($columns, $original) / ($columns - 1)
+
+@function grid-column-width($span, $columns, $original)
+  $gutter-width: $grid-ratio-gutters
+  $column-width: $grid-ratio-columns
+  @if $original != $grid-columns
+    $gutter-width: grid-ratio-gutters-partial($columns, $original)
+    $column-width: 100% - $gutter-width
+  $gutter-width: $gutter-width / ($columns - 1) * ($span - 1)
+  $column-width: $column-width / $columns * $span
+  @return $column-width + $gutter-width

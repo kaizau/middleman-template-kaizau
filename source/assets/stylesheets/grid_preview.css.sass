@@ -7,7 +7,7 @@
 @import base/helpers
 @import base/grid
 
-html, body, #page
+html, body, .page
   height: 100%
   position: relative
 
@@ -33,6 +33,9 @@ html, body, #page
   width: 100%
 
   .section-content
+    height: 100%
+
+  .row
     +grid-row
     background: rgba(255, 0, 0, .05)
     height: 100%

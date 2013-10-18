@@ -8,16 +8,16 @@
 
 %body{:class => current_page.data.page_class, :id => current_page.data.page_id}
 
-  #page
+  .page
 
-    #page-wrap
+    .page-wrap
 
-      #page-content
+      .page-content
         = yield_content :before_content
         = yield
         = yield_content :after_content
 
-    #page-footer
+    .page-footer
       .section-content
         %p A sticky footer of variable height.
         %p= lorem.paragraph

@@ -10,14 +10,15 @@ page_id: styleguide
   = stylesheet_link_tag :styleguide
 
 %section.section-content.section-styleguide
-  %h1 Base
+  %h1.grid-row Base
 
-  %h2 Colors
-  .colors-styleguide
-    - %w|black gray-void gray-shale gray-steel gray-silver gray-rain gray-smoke gray-fog white|.each do |color|
-      %div(class="color #{color}") .#{color}
+  .grid-row
+    %h2 Colors
+    .colors-styleguide
+      - %w|black gray-void gray-shale gray-steel gray-silver gray-rain gray-smoke gray-fog white|.each do |color|
+        %div(class="color #{color}") .#{color}
 
-  %h2 Grid
+  %h2.grid-row Grid
   .grid-styleguide
     .grid-row
       - 12.times do
@@ -40,7 +41,7 @@ page_id: styleguide
       .c12-s2.p12-s2 2/12
 
 %section.section-content.section-styleguide
-  %h1 Common Tags
+  %h1.grid-row Common Tags
 
   .grid-row
     .c12-s3
@@ -78,7 +79,7 @@ page_id: styleguide
       %p= lorem.sentence
 
 %section.section-content.section-styleguide
-  %h1 Elements
+  %h1.grid-row Elements
 
   .grid-row
     .c12-s9
@@ -180,7 +181,7 @@ page_id: styleguide
           %a.button(href="#") Right
 
 %section.section-content.section-styleguide
-  %h1 Modules
+  %h1.grid-row Modules
 
   .grid-row
     .c12-s6
@@ -225,17 +226,17 @@ page_id: styleguide
       %p= lorem.sentence
 
 %section.section-content.section-styleguide
-  %header.header
-    %h1 Helpers
+  %h1.grid-row Helpers
 
-  %h2 Retina Background
-  .retina-background
+  .grid-row
+    %h2 Retina Background
+    .retina-background
 
-  %h2 Retina Sprites
-  .retina-sprites
-    .sprite.puppy-run
-    .sprite.puppy-yawn
-    .sprite.puppy-sleep
+    %h2 Retina Sprites
+    .retina-sprites
+      .sprite.puppy-run
+      .sprite.puppy-yawn
+      .sprite.puppy-sleep
 
-  %h2 Placeholder Background Noise
-  %p.noise-png
+    %h2 Placeholder Background Noise
+    %p.noise-png

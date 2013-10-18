@@ -15,6 +15,38 @@
     border: 0
     padding-bottom: $space-v
 
+// Grid classes
+=grid-classes($columns, $nested: false)
+  $span: 0
+  @if $nested == false
+    @while $span <= $columns
+      .c#{$columns}-s#{$span}
+        +grid($span, $columns)
+
+      .p#{$columns}-s#{$span}
+        +grid-push($span, $columns)
+      $span: $span + 1
+  @else
+    @while $span <= $columns
+      .c#{$columns}-n#{$nested}-s#{$span}
+        +grid($span, $columns, $nested)
+
+      .p#{$columns}-n-s#{$span}
+        +grid-push($span, $columns, $nested)
+      $span: $span + 1
+
++grid-classes(12)
++grid-classes(6)
++grid-classes(4, 8)
++grid-classes(3, 4)
++grid-classes(3, 9)
+
+.grid-row
+  +grid-row
+
+.grid-row-nested
+  +grid-row(nested)
+
 //
   Base
   -----------------------------------------------------------------------------
@@ -62,6 +94,7 @@
   ----
 
 .grid-styleguide
+  +clearfix
   background: rgba(0, 0, 255, .05)
 
   [class^=c]
@@ -70,39 +103,11 @@
     line-height: $space-v * 2
     text-align: center
 
-.grid-row
-  +grid-row
-  margin: $space-v 0
+  .grid-row
+    margin: $space-v 0
 
-.grid-row-nested
-  +grid-row-nested
-  padding: $space-v 0
-
-// Grid classes
-=grid-classes($columns, $nested: false)
-  $span: 0
-  @if $nested == false
-    @while $span <= $columns
-      .c#{$columns}-s#{$span}
-        +grid($span, $columns)
-
-      .p#{$columns}-s#{$span}
-        +grid-push($span, $columns)
-      $span: $span + 1
-  @else
-    @while $span <= $columns
-      .c#{$columns}-n#{$nested}-s#{$span}
-        +grid($span, $columns, $nested)
-
-      .p#{$columns}-n-s#{$span}
-        +grid-push($span, $columns, $nested)
-      $span: $span + 1
-
-+grid-classes(12)
-+grid-classes(6)
-+grid-classes(4, 8)
-+grid-classes(3, 4)
-+grid-classes(3, 9)
+  .grid-row-nested
+    padding: $space-v 0
 
 //
   Utility

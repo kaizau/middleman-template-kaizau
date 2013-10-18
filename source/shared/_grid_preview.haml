@@ -8,5 +8,6 @@
 #grid-preview
   #grid-preview-columns
     .section-content
-      - columns.times do |i|
-        .column #{i}
+      .row
+        - columns.times do |i|
+          .column #{i}
