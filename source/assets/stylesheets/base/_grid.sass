@@ -3,41 +3,65 @@
   -----------------------------------------------------------------------------
 
 $grid-columns: 12
-$grid-absolute: true
 
 // Add up to 100%
-$grid-column-width: 72% / $grid-columns
-$grid-outer-width: 6% / 2
-$grid-gutter-width: 22% / ($grid-columns - 1)
+$grid-ratio-columns: 70%
+$grid-ratio-outer: 10%
+$grid-ratio-gutters: 20%
 
-@function grid-width($columns)
-  @return ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1))
+// Defaults
+$grid-gutter-width: $grid-ratio-gutters / ($grid-columns - 1)
+$grid-column-width: $grid-ratio-columns / $grid-columns
+$grid-outer-width: $grid-ratio-outer / 2
 
-@function grid-position($position)
-  @return grid-width($position) + $grid-gutter-width + $grid-outer-width
+@function grid-gutter-nested-ratio($columns, $nested)
+  $nested-width: grid-column-width($nested, $grid-columns, $grid-columns)
+  $nested-gutters: ($nested - 1) * $grid-gutter-width
+  @return $nested-gutters / $nested-width * 100% / ($nested / $columns)
 
-%grid-row
-  +clearfix
-  clear: both
-
-%grid-column
-  float: left
-  @if $grid-absolute
-    margin-right: -100%
+@function grid-gutter-width($columns, $nested)
+  @if $nested == $grid-columns
+    @return $grid-gutter-width
   @else
-    &:first-child
-      margin-left: $grid-outer-width
+    @return grid-gutter-nested-ratio($columns, $nested) / ($columns - 1)
+
+@function grid-column-width($span, $columns, $nested)
+  $gutter-width: $grid-ratio-gutters
+  $column-width: $grid-ratio-columns
+  @if $nested != $grid-columns
+    $gutter-width: grid-gutter-nested-ratio($columns, $nested)
+    $column-width: 100% - $gutter-width
+  $gutter-width: $gutter-width / ($columns - 1) * ($span - 1)
+  $column-width: $column-width / $columns * $span
+  @return $column-width + $gutter-width
 
 =grid-row
-  @extend %grid-row
+  +clearfix
+
+  > *:first-child
+    margin-left: $grid-ratio-outer / 2
+
+=grid-row-nested
+  +clearfix
+
+  > *:first-child
+    margin-left: 0
 
 =grid-column
-  @extend %grid-column
+  float: left
 
-=grid($columns, $position: 0)
-  @extend %grid-column
-  @if $grid-absolute
-    margin-left: grid-position($position)
-  @else
-    margin-left: $grid-gutter-width
-  width: grid-width($columns)
+=grid($span, $columns: $grid-columns, $nested: $grid-columns)
+  +grid-column
+  margin-left: grid-gutter-width($columns, $nested)
+  width: grid-column-width($span, $columns, $nested)
+
+=grid-push($span, $columns: $grid-columns, $nested: $grid-columns)
+  $gutter-width: grid-gutter-width($columns, $nested)
+  $width: grid-column-width($span, $columns, $nested) + $gutter-width
+  margin-left: $width + $gutter-width
+
+  &:first-child
+    @if $nested == $grid-columns
+      margin-left: $width + $grid-outer-width
+    @else
+      margin-left: $width

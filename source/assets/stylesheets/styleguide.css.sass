@@ -62,10 +62,10 @@
   ----
 
 .grid-styleguide
-  background: rgba(255, 0, 0, .05)
+  background: rgba(0, 0, 255, .05)
 
-  .grid-column
-    background: rgba(255, 0, 0, .1)
+  [class^=c]
+    background: rgba(0, 0, 255, .1)
     min-height: $space-v * 2
     line-height: $space-v * 2
     text-align: center
@@ -74,18 +74,35 @@
   +grid-row
   margin: $space-v 0
 
-.grid-column
-  +grid-column
+.grid-row-nested
+  +grid-row-nested
+  padding: $space-v 0
 
 // Grid classes
-$i: 0
-@while $i < 12
-  $ii: 0
-  @while $ii < 12
-    .grid-#{$i}-#{$ii}
-      +grid($i, $ii)
-    $ii: $ii + 1
-  $i: $i + 1
+=grid-classes($columns, $nested: false)
+  $span: 0
+  @if $nested == false
+    @while $span <= $columns
+      .c#{$columns}-s#{$span}
+        +grid($span, $columns)
+
+      .p#{$columns}-s#{$span}
+        +grid-push($span, $columns)
+      $span: $span + 1
+  @else
+    @while $span <= $columns
+      .c#{$columns}-n#{$nested}-s#{$span}
+        +grid($span, $columns, $nested)
+
+      .p#{$columns}-n-s#{$span}
+        +grid-push($span, $columns, $nested)
+      $span: $span + 1
+
++grid-classes(12)
++grid-classes(6)
++grid-classes(4, 8)
++grid-classes(3, 4)
++grid-classes(3, 9)
 
 //
   Utility
