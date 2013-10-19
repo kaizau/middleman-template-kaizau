@@ -7,7 +7,7 @@
 @import base/helpers
 @import base/grid
 
-.section-styleguide
+.page-content .section-content
   border-bottom: 1px solid $color-border
   padding-bottom: $space-v * 2 - 1px
   padding-top: $space-v * 2
@@ -41,12 +41,6 @@
 +grid-classes(4, 8)
 +grid-classes(3, 4)
 +grid-classes(3, 9)
-
-.grid-row
-  +grid-row
-
-.grid-row-nested
-  +grid-row(nested)
 
 //
   Base
@@ -104,10 +98,10 @@
     line-height: $space-v * 2
     text-align: center
 
-  .grid-row
+  .section-grid
     margin: $space-v 0
 
-  .grid-row-nested
+  .section-grid-nested
     padding: $space-v 0
 
 //

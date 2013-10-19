@@ -1,0 +1,21 @@
+%h2 Table
+%p= lorem.sentence
+%table.table
+  %thead
+    %tr
+      %th The
+      %th Table
+      %th Header
+  -# <tfoot> above <tbody> for performance
+  %tfoot
+    %tr
+      %td The
+      %td Table
+      %td Footer
+  %tbody
+    - 5.times do
+      %tr
+        %td Cell
+        %td Cell
+        %td Cell
+%p= lorem.sentence

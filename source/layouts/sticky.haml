@@ -9,16 +9,14 @@
 %body{:class => current_page.data.page_class, :id => current_page.data.page_id}
 
   .page
-
     .page-wrap
-
       .page-content
         = yield_content :before_content
         = yield
         = yield_content :after_content
 
     .page-footer
-      .section-content
+      .section-grid
         %p A sticky footer of variable height.
         %p= lorem.paragraph
 

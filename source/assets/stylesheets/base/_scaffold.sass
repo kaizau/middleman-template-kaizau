@@ -143,19 +143,20 @@ small, code, sup, sub
 .section-content
   +clearfix
   margin: 0 auto
-
-  // Fluid width
   max-width: 1200px
-  width: 100%
 
-  // Fixed width
-  //padding: 0 $space-h
-  //width: 1000px
+.section-grid
+  +grid-row
+  margin: 0 auto
+  max-width: 1200px
+
+.section-grid-nested
+  +grid-row(nested)
 
 .block
   +block
   +clearfix
- 
+
 //
   Sticky Footer
   -----------------------------------------------------------------------------

@@ -1,0 +1,48 @@
+---
+title: Style Guide
+page_id: styleguide
+---
+
+- content_for :meta do
+  %meta(name='robots' content='noindex, nofollow')
+
+- content_for :stylesheets do
+  = stylesheet_link_tag :styleguide
+
+%section.section-content
+  .section-grid= link_to "Back", "/"
+
+%section.section-content
+  %h1.section-grid Base
+  = partial :colors
+  = partial :grid
+
+%section.section-content
+  %h1.section-grid Common Tags
+  = partial :common
+
+%section.section-content
+  %h1.section-grid Elements
+  = partial :form
+
+%section.section-content
+  %h1.section-grid Modules
+  .section-grid
+    .c12-s6= partial :table
+    .c12-s6= partial :code
+
+%section.section-content
+  %h1.section-grid Helpers
+
+  .section-grid
+    %h2 Retina Background
+    .retina-background
+
+    %h2 Retina Sprites
+    .retina-sprites
+      .sprite.puppy-run
+      .sprite.puppy-yawn
+      .sprite.puppy-sleep
+
+    %h2 Placeholder Background Noise
+    %p.noise-png
