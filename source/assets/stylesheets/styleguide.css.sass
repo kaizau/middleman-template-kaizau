@@ -84,11 +84,11 @@
 
 @media (min-width: 600px) and (max-width: 799px)
   +grid-init(small, 6, 12)
-  +grid-init(small-nested, 4, 8)
+  +grid-init(small-nested, 4, 8, false)
 
 @media (min-width: 800px)
   +grid-init(large, 12)
-  +grid-init(large-nested, 8)
+  +grid-init(large-nested, 8, 8, false)
 
 .g-1
   +grid(small, 1)
@@ -101,9 +101,9 @@
 
 .g-8-n
   +grid(small, 4)
-  +grid-row(small-nested, false)
+  +grid-row(small-nested)
   +grid(large, 8)
-  +grid-row(large-nested, false)
+  +grid-row(large-nested)
 
 .n-1-p-1
   +grid(small-nested, 1)

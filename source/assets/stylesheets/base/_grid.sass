@@ -11,7 +11,7 @@ $grid-ratio-outer:    $space-h * 2  !default
   Init
   ----
 
-=grid-init($namespace, $columns: $grid-columns, $total-columns: $columns, $ratio-columns: $grid-ratio-columns, $ratio-gutters: $grid-ratio-gutters, $ratio-outer: $grid-ratio-outer)
+=grid-init($namespace, $columns: $grid-columns, $total-columns: $columns, $row-padding: true, $ratio-columns: $grid-ratio-columns, $ratio-gutters: $grid-ratio-gutters, $ratio-outer: $grid-ratio-outer)
   // Calculations
   $gutter-width: $ratio-gutters / ($columns - 1)
   $column-width: $ratio-columns / $columns
@@ -44,9 +44,10 @@ $grid-ratio-outer:    $space-h * 2  !default
     $span: $span + 1
 
   // Rows & Breaks
-  %grid-#{$namespace}-row-padding
-    padding-left: $outer-width
-    padding-right: $outer-width
+  @if $row-padding
+    %grid-#{$namespace}-row
+      padding-left: $outer-width
+      padding-right: $outer-width
 
   %grid-#{$namespace}-row > *:nth-child(#{$columns}n + 1),
   %grid-#{$namespace}-break
@@ -61,12 +62,9 @@ $grid-ratio-outer:    $space-h * 2  !default
   Mixins
   ------
 
-=grid-row($namespace, $padding: true)
+=grid-row($namespace)
   +clearfix
   @extend %grid-#{$namespace}-row
-
-  @if $padding
-    @extend %grid-#{$namespace}-row-padding
 
 =grid($namespace, $span)
   @extend %grid-#{$namespace}-span#{$span}
