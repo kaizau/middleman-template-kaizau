@@ -51,12 +51,12 @@ $grid-ratio-outer:    $space-h * 2  !default
 
   %grid-#{$namespace}-row > *:nth-child(#{$columns}n + 1),
   %grid-#{$namespace}-break
-    margin-left: 0
-    clear: left
+    margin-left: 0 !important
+    clear: left !important
 
   %grid-#{$namespace}-unbreak
-    margin-left: $gutter-width
-    clear: none
+    margin-left: $gutter-width !important
+    clear: none !important
 
 //
   Mixins
@@ -79,4 +79,3 @@ $grid-ratio-outer:    $space-h * 2  !default
 =grid-unbreak($namespace, $nth)
   &:nth-child(#{$nth})
     @extend %grid-#{$namespace}-unbreak
-
