@@ -136,6 +136,8 @@ small, code, sup, sub
   Containers
   -----------------------------------------------------------------------------
 
++grid-init(default)
+
 .section
   +clearfix
   width: 100%
@@ -146,12 +148,9 @@ small, code, sup, sub
   max-width: 1200px
 
 .section-grid
-  +grid-row
+  +grid-row(default)
   margin: 0 auto
   max-width: 1200px
-
-.section-grid-nested
-  +grid-row(nested)
 
 .block
   +block

@@ -7,6 +7,8 @@
 @import base/helpers
 @import base/grid
 
++grid-init(preview)
+
 html, body, .page
   height: 100%
   position: relative
@@ -36,12 +38,12 @@ html, body, .page
     height: 100%
 
   .row
-    +grid-row
+    +grid-row(preview)
     background: rgba(255, 0, 0, .05)
     height: 100%
 
   .column
-    +grid(1)
+    +grid(preview, 1)
     background: rgba(255, 0, 0, .1)
     color: rgba(255, 0, 0, .5)
     font-size: $font-size-medium

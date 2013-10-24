@@ -16,32 +16,6 @@
     border: 0
     padding-bottom: $space-v
 
-// Grid classes
-=grid-classes($columns, $nested: false)
-  $span: 0
-  @if $nested == false
-    @while $span <= $columns
-      .c#{$columns}-s#{$span}
-        +grid($span, $columns)
-
-      .p#{$columns}-s#{$span}
-        +grid-push($span, $columns)
-      $span: $span + 1
-  @else
-    @while $span <= $columns
-      .c#{$columns}-n#{$nested}-s#{$span}
-        +grid($span, $columns, $nested)
-
-      .p#{$columns}-n-s#{$span}
-        +grid-push($span, $columns, $nested)
-      $span: $span + 1
-
-+grid-classes(12)
-+grid-classes(6)
-+grid-classes(4, 8)
-+grid-classes(3, 4)
-+grid-classes(3, 9)
-
 //
   Base
   -----------------------------------------------------------------------------
@@ -55,10 +29,12 @@
 
   .color
     display: inline-block
+    font-size: $font-size-small
     height: $space-v * 2
     line-height: $space-v *2
     margin-right: 10px
     text-align: center
+    white-space: nowrap
     width: 100px
 
   .black
@@ -92,17 +68,77 @@
   +clearfix
   background: rgba(0, 0, 255, .05)
 
-  [class^=c]
+  [class^=g-],
+  [class^=n-]
     background: rgba(0, 0, 255, .1)
     min-height: $space-v * 2
     line-height: $space-v * 2
     text-align: center
 
-  .section-grid
+  .grid-row
     margin: $space-v 0
 
-  .section-grid-nested
-    padding: $space-v 0
+.grid-row
+  +grid-row(small)
+  +grid-row(large)
+
+@media (min-width: 600px) and (max-width: 799px)
+  +grid-init(small, 6, 12)
+  +grid-init(small-nested, 4, 8)
+
+@media (min-width: 800px)
+  +grid-init(large, 12)
+  +grid-init(large-nested, 8)
+
+.g-1
+  +grid(small, 1)
+  +grid(large, 1)
+
+.g-3
+  +grid(small, 3)
+  +grid-break(small, 2n + 1)
+  +grid(large, 3)
+
+.g-8-n
+  +grid(small, 4)
+  +grid-row(small-nested, false)
+  +grid(large, 8)
+  +grid-row(large-nested, false)
+
+.n-1-p-1
+  +grid(small-nested, 1)
+  +grid(large-nested, 1)
+  +grid-push(large-nested, 1)
+
+.n-2
+  +grid(small-nested, 1)
+  +grid(large-nested, 2)
+
+.n-3-p-1
+  +grid(small-nested, 2)
+  +grid(large-nested, 3)
+  +grid-push(large-nested, 1)
+
+.g-4
+  +grid(small, 2)
+  +grid(large, 4)
+
+.g-2-p-2
+  +grid(small, 2)
+  +grid(large, 2)
+  +grid-push(large, 2)
+
+.g-6
+  +grid(small, 3)
+  +grid(large, 6)
+
+.n-5
+  +grid(small-nested, 2)
+  +grid(large-nested, 5)
+
+.n-3
+  +grid(small-nested, 2)
+  +grid(large-nested, 3)
 
 //
   Utility

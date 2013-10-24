@@ -1,91 +1,90 @@
 .section-grid
-  .c12-s9
-    %h2 Form Fields
-    .section-grid-nested
-      .c3-n9-s2
-        .field.field-text
-          = label_tag :text
-          = text_field_tag :text, :id => :text
-        .field.field-text.field-text_small
-          = label_tag :text_small
-          = text_field_tag :text_small, :id => :text_small
-        = field_set_tag "Text (double)", :class => "field-text field-text_double" do
-          = text_field_tag :text_double, :id => :text_double
-          = text_field_tag :text_double_2, :id => :text_double_2
-        = field_set_tag :class => "field-text field-text_triple" do
-          .field
-            = label_tag :text_triple, :caption => "Text (triple)"
-            = text_field_tag :text_triple, :id => :text_triple
-          .field
-            = label_tag :text_triple_2, :caption => "With"
-            = text_field_tag :text_triple_2, :id => :text_triple_2
-          .field
-            = label_tag :text_triple_3, :caption => "Labels"
-            = text_field_tag :text_triple_3, :id => :text_triple_3
-        .field.field-textarea
-          = label_tag :textarea
-          = text_area_tag :textarea, :id => :textarea
-        .field.field-textarea.field-textarea_large
-          = label_tag :textarea_large
-          = text_area_tag :textarea_large, :id => :textarea_large
+  .g-8-n
+    .n-5
+      %h2 Form Fields
+      .field.field-text
+        = label_tag :text
+        = text_field_tag :text, :id => :text
+      .field.field-text.field-text_small
+        = label_tag :text_small
+        = text_field_tag :text_small, :id => :text_small
+      = field_set_tag "Text (double)", :class => "field-text field-text_double" do
+        = text_field_tag :text_double, :id => :text_double
+        = text_field_tag :text_double_2, :id => :text_double_2
+      = field_set_tag :class => "field-text field-text_triple" do
+        .field
+          = label_tag :text_triple, :caption => "Text (triple)"
+          = text_field_tag :text_triple, :id => :text_triple
+        .field
+          = label_tag :text_triple_2, :caption => "With"
+          = text_field_tag :text_triple_2, :id => :text_triple_2
+        .field
+          = label_tag :text_triple_3, :caption => "Labels"
+          = text_field_tag :text_triple_3, :id => :text_triple_3
+      .field.field-textarea
+        = label_tag :textarea
+        = text_area_tag :textarea, :id => :textarea
+      .field.field-textarea.field-textarea_large
+        = label_tag :textarea_large
+        = text_area_tag :textarea_large, :id => :textarea_large
 
-      .c3-n9-s1
-        .field.field-select
-          = label_tag :select
-          %select(id="select" name="select")
+    .n-3
+      .field.field-select
+        = label_tag :select
+        %select(id="select" name="select")
+          %option(value="1") An okay option
+          %option(value="2") A good option
+          %option(value="3") A great option
+      .field.field-select
+        = label_tag :select_complex
+        %select(id="select_complex" name="select_complex")
+          %option
+          %option(value="0") The first option
+          %optgroup(label="First Group")
             %option(value="1") An okay option
             %option(value="2") A good option
             %option(value="3") A great option
-        .field.field-select
-          = label_tag :select_complex
-          %select(id="select_complex" name="select_complex")
-            %option
-            %option(value="0") The first option
-            %optgroup(label="First Group")
-              %option(value="1") An okay option
-              %option(value="2") A good option
-              %option(value="3") A great option
-            %optgroup(label="Second Group")
-              %option(value="4") A mediocre option
-              %option(value="5") A bad option
-              %option(value="6") A terrible option
-            %optgroup(label="Third Group" disabled="disabled")
-              %option(value="7") The best option
-              %option(value="8") The worst option
-        %h3 A title inside the form
-        %p Some text inside the form
+          %optgroup(label="Second Group")
+            %option(value="4") A mediocre option
+            %option(value="5") A bad option
+            %option(value="6") A terrible option
+          %optgroup(label="Third Group" disabled="disabled")
+            %option(value="7") The best option
+            %option(value="8") The worst option
+      %h3 A title inside the form
+      %p Some text inside the form
+      .field.field-checkbox
+        %label
+          = check_box_tag :checkbox, :id => :checkbox
+          Checkbox
+      = field_set_tag "Checkbox group" do
         .field.field-checkbox
           %label
-            = check_box_tag :checkbox, :id => :checkbox
-            Checkbox
-        = field_set_tag "Checkbox group" do
-          .field.field-checkbox
-            %label
-              = check_box_tag :checkbox_group, :value => 1
-              Checkbox 1
-          .field.field-checkbox
-            %label
-              = check_box_tag :checkbox_group, :value => 2
-              Checkbox 2
-          .field.field-checkbox
-            %label
-              = check_box_tag :checkbox_group, :value => 3
-              Checkbox 3
-        = field_set_tag "Radio button group" do
-          .field.field-radio
-            %label
-              = radio_button_tag :radio_group, :value => 1
-              Radio Button 1
-          .field.field-radio
-            %label
-              = radio_button_tag :radio_group, :value => 2
-              Radio Button 2
-          .field.field-radio
-            %label
-              = radio_button_tag :radio_group, :value => 3
-              Radio Button 3
+            = check_box_tag :checkbox_group, :value => 1
+            Checkbox 1
+        .field.field-checkbox
+          %label
+            = check_box_tag :checkbox_group, :value => 2
+            Checkbox 2
+        .field.field-checkbox
+          %label
+            = check_box_tag :checkbox_group, :value => 3
+            Checkbox 3
+      = field_set_tag "Radio button group" do
+        .field.field-radio
+          %label
+            = radio_button_tag :radio_group, :value => 1
+            Radio Button 1
+        .field.field-radio
+          %label
+            = radio_button_tag :radio_group, :value => 2
+            Radio Button 2
+        .field.field-radio
+          %label
+            = radio_button_tag :radio_group, :value => 3
+            Radio Button 3
 
-  .c12-s3
+  .g-4
     %h2 Button
     .section-grid-nested
       .block

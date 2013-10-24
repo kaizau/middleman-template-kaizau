@@ -2,73 +2,83 @@
   Grid
   -----------------------------------------------------------------------------
 
-//
-  Config
-  ------
+$grid-columns:        12            !default
+$grid-ratio-columns:  67%           !default
+$grid-ratio-gutters:  33%           !default
+$grid-ratio-outer:    $space-h * 2  !default
 
-$grid-columns: 12
-$grid-ratio-columns: 78%
-$grid-ratio-gutters: 22%
-$grid-ratio-outer: 10%
+//
+  Init
+  ----
+
+=grid-init($namespace, $columns: $grid-columns, $total-columns: $columns, $ratio-columns: $grid-ratio-columns, $ratio-gutters: $grid-ratio-gutters, $ratio-outer: $grid-ratio-outer)
+  // Calculations
+  $gutter-width: $ratio-gutters / ($columns - 1)
+  $column-width: $ratio-columns / $columns
+  $outer-width: $ratio-outer / 2
+
+  @if $columns < $total-columns
+    $partial-gutters: $ratio-gutters / ($total-columns - 1) * ($columns - 1)
+    $partial-width: ($ratio-columns / $total-columns * $columns) + $partial-gutters
+    $partial-ratio-gutters: ($partial-gutters / $partial-width) * ($columns / $total-columns) * 100%
+    $partial-ratio-columns: 100% - $partial-ratio-gutters
+    $gutter-width: $partial-ratio-gutters / ($columns - 1)
+    $column-width: $partial-ratio-columns / $columns
+
+  // Columns
+  $span: 1
+  @while $span <= $columns
+    $span-width: ($column-width * $span) + ($gutter-width * ($span - 1))
+
+    %grid-#{$namespace}-span#{$span}
+      float: left
+      margin-left: $gutter-width
+      width: $span-width
+
+    %grid-#{$namespace}-push#{$span}
+      margin-left: $span-width + ($gutter-width * 2) !important
+
+      &:first-child
+        margin-left: $span-width + $gutter-width !important
+
+    $span: $span + 1
+
+  // Rows & Breaks
+  %grid-#{$namespace}-row-padding
+    padding-left: $outer-width
+    padding-right: $outer-width
+
+  %grid-#{$namespace}-row > *:nth-child(#{$columns}n + 1),
+  %grid-#{$namespace}-break
+    margin-left: 0
+    clear: left
+
+  %grid-#{$namespace}-unbreak
+    margin-left: $gutter-width
+    clear: none
 
 //
   Mixins
   ------
 
-=grid-row($type: default)
+=grid-row($namespace, $padding: true)
   +clearfix
+  @extend %grid-#{$namespace}-row
 
-  @if $type == default
-    padding-left: $grid-outer-width
-    padding-right: $grid-outer-width
-  @else
-    padding-left: 0
-    padding-right: 0
+  @if $padding
+    @extend %grid-#{$namespace}-row-padding
 
-  > *:first-child
-    margin-left: 0
+=grid($namespace, $span)
+  @extend %grid-#{$namespace}-span#{$span}
 
-=grid-column
-  float: left
+=grid-push($namespace, $span)
+  @extend %grid-#{$namespace}-push#{$span}
 
-=grid($span, $columns: $grid-columns, $original: $grid-columns)
-  +grid-column
-  margin-left: grid-gutter-width($columns, $original)
-  width: grid-column-width($span, $columns, $original)
+=grid-break($namespace, $nth)
+  &:nth-child(#{$nth})
+    @extend %grid-#{$namespace}-break
 
-=grid-push($span, $columns: $grid-columns, $original: $grid-columns)
-  $gutter-width: grid-gutter-width($columns, $original)
-  $width: grid-column-width($span, $columns, $original) + $gutter-width
-  margin-left: $width + $gutter-width
+=grid-unbreak($namespace, $nth)
+  &:nth-child(#{$nth})
+    @extend %grid-#{$namespace}-unbreak
 
-  &:first-child
-    margin-left: $width !important
-
-//
-  Calculations
-  ------------
-
-$grid-gutter-width: $grid-ratio-gutters / ($grid-columns - 1)
-$grid-column-width: $grid-ratio-columns / $grid-columns
-$grid-outer-width: $grid-ratio-outer / 2
-
-@function grid-ratio-gutters-partial($columns, $original)
-  $partial-width: grid-column-width($original, $grid-columns, $grid-columns)
-  $partial-gutters: ($original - 1) * $grid-gutter-width
-  @return $partial-gutters / $partial-width * 100% / ($original / $columns)
-
-@function grid-gutter-width($columns, $original)
-  @if $original == $grid-columns
-    @return $grid-gutter-width
-  @else
-    @return grid-ratio-gutters-partial($columns, $original) / ($columns - 1)
-
-@function grid-column-width($span, $columns, $original)
-  $gutter-width: $grid-ratio-gutters
-  $column-width: $grid-ratio-columns
-  @if $original != $grid-columns
-    $gutter-width: grid-ratio-gutters-partial($columns, $original)
-    $column-width: 100% - $gutter-width
-  $gutter-width: $gutter-width / ($columns - 1) * ($span - 1)
-  $column-width: $column-width / $columns * $span
-  @return $column-width + $gutter-width
