@@ -29,30 +29,37 @@ html
   Tags
   -----------------------------------------------------------------------------
 
-h1,
-h2,
-h3,
-h4
+//
+  Headings
+  --------
+
+=heading-properties($size, $ratio: 1.2)
+  $total-height: $line-height
+  $heading-height: ceil($size * $ratio)
+  @while $total-height < $heading-height
+    $total-height: $total-height + $line-height
+  font-size: $size
+  line-height: $heading-height
+  padding-top: $total-height - $heading-height
+
+h1, h2, h3, h4
   font: normal #{$font-size-huge}/1 $font-family-sans
 
 h1
-  line-height: ceil($font-size-huge*1.2)
-  padding-top: $line-height*2 - ceil($font-size-huge*1.2)
+  +heading-properties($font-size-huge)
 
 h2
-  font-size: $font-size-headline
-  line-height: ceil($font-size-headline*1.2)
-  padding-top: $line-height*2 - ceil($font-size-headline*1.2)
+  +heading-properties($font-size-headline)
 
 h3
-  font-size: $font-size-large
-  line-height: ceil($font-size-large*1.2)
-  padding-top: $line-height*2 - ceil($font-size-large*1.2)
+  +heading-properties($font-size-large)
 
 h4
-  font-size: $font-size-medium
-  line-height: $line-height
-  padding-top: $line-height
+  +heading-properties($font-size-medium)
+
+//
+  Common
+  ------
 
 a
   color: $color-anchor
@@ -70,6 +77,10 @@ ul
 
   nav &
     +naked-list
+
+//
+  Misc
+  ----
 
 blockquote
   color: $color-text-light
@@ -124,7 +135,7 @@ h1, h2, h3, h4
   @extend %block
 
 %inline,
-em, strong,
+span, em, strong,
 small, code, sup, sub
   display: inline
   line-height: 1
