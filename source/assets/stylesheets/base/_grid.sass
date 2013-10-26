@@ -45,7 +45,7 @@ $grid-ratio-outer:    $space-h * 2  !default
 
   // Rows & Breaks
   @if $row-padding
-    %grid-#{$namespace}-row
+    %grid-#{$namespace}-row-padding
       padding-left: $outer-width
       padding-right: $outer-width
 
@@ -64,7 +64,11 @@ $grid-ratio-outer:    $space-h * 2  !default
 
 =grid-row($namespace)
   +clearfix
+  @extend %grid-#{$namespace}-row-padding !optional
   @extend %grid-#{$namespace}-row
+
+=grid-header($namespace)
+  @extend %grid-#{$namespace}-row-padding !optional
 
 =grid($namespace, $span)
   @extend %grid-#{$namespace}-span#{$span}
