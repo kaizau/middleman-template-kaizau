@@ -9,11 +9,12 @@
 %body{:class => current_page.data.page_class, :id => current_page.data.page_id}
 
   .page
-    .page-wrap
-      .page-content
-        = yield_content :before_content
-        = yield
-        = yield_content :after_content
+    .page-body
+      .page-body-wrap
+        .page-content
+          = yield_content :before_content
+          = yield
+          = yield_content :after_content
 
     .page-footer
       .section-grid
