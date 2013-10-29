@@ -25,6 +25,12 @@ $grid-ratio-outer:    $space-h * 2  !default
     $gutter-width: $partial-ratio-gutters / ($columns - 1)
     $column-width: $partial-ratio-columns / $columns
 
+  // Rows
+  @if $row-padding
+    %grid-#{$namespace}-row
+      padding-left: $outer-width
+      padding-right: $outer-width
+
   // Columns
   $span: 1
   @while $span <= $columns
@@ -37,6 +43,9 @@ $grid-ratio-outer:    $space-h * 2  !default
 
       &:first-child
         margin-left: 0
+
+    %grid-#{$namespace}-width#{$span}
+      width: $span-width
 
     $span: $span + 1
 
@@ -55,7 +64,7 @@ $grid-ratio-outer:    $space-h * 2  !default
 
     $span: $span + 1
 
-  // Margin + Breaks
+  // Adjustments
   %grid-#{$namespace}-reset
     clear: left
     margin-left: 0
@@ -65,12 +74,6 @@ $grid-ratio-outer:    $space-h * 2  !default
 
   %grid-#{$namespace}-flush
     margin-left: 0
-
-  // Rows
-  @if $row-padding
-    %grid-#{$namespace}-row
-      padding-left: $outer-width
-      padding-right: $outer-width
 
 //
   Mixins
@@ -82,6 +85,9 @@ $grid-ratio-outer:    $space-h * 2  !default
 
 =grid($namespace, $span)
   @extend %grid-#{$namespace}-span#{$span}
+
+=grid-width($namespace, $span)
+  @extend %grid-#{$namespace}-width#{$span}
 
 =grid-push($namespace, $span, $flush: false)
   @if $flush
