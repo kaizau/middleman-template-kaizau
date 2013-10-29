@@ -35,28 +35,42 @@ $grid-ratio-outer:    $space-h * 2  !default
       margin-left: $gutter-width
       width: $span-width
 
-    %grid-#{$namespace}-push#{$span}
-      margin-left: $span-width + ($gutter-width * 2) !important
-
       &:first-child
-        margin-left: $span-width + $gutter-width !important
+        margin-left: 0
 
     $span: $span + 1
 
-  // Rows & Breaks
+  // Push
+  $span: 1
+  @while $span <= $columns
+    $span-width: ($column-width * $span) + ($gutter-width * ($span - 1))
+
+    %grid-#{$namespace}-push#{$span}
+      margin-left: $span-width + ($gutter-width * 2)
+      &:first-child
+        margin-left: $span-width + $gutter-width
+
+    %grid-#{$namespace}-push#{$span}-flush
+      margin-left: $span-width + $gutter-width
+
+    $span: $span + 1
+
+  // Margin + Breaks
+  %grid-#{$namespace}-reset
+    clear: left
+    margin-left: 0
+
+  %grid-#{$namespace}-clear
+    clear: left
+
+  %grid-#{$namespace}-flush
+    margin-left: 0
+
+  // Rows
   @if $row-padding
-    %grid-#{$namespace}-row-padding
+    %grid-#{$namespace}-row
       padding-left: $outer-width
       padding-right: $outer-width
-
-  %grid-#{$namespace}-row > *:nth-child(#{$columns}n + 1),
-  %grid-#{$namespace}-break
-    margin-left: 0 !important
-    clear: left !important
-
-  %grid-#{$namespace}-unbreak
-    margin-left: $gutter-width !important
-    clear: none !important
 
 //
   Mixins
@@ -64,22 +78,19 @@ $grid-ratio-outer:    $space-h * 2  !default
 
 =grid-row($namespace)
   +clearfix
-  @extend %grid-#{$namespace}-row-padding !optional
-  @extend %grid-#{$namespace}-row
-
-=grid-header($namespace)
-  @extend %grid-#{$namespace}-row-padding !optional
+  @extend %grid-#{$namespace}-row !optional
 
 =grid($namespace, $span)
   @extend %grid-#{$namespace}-span#{$span}
 
-=grid-push($namespace, $span)
+=grid-push($namespace, $span, $flush: false)
   @extend %grid-#{$namespace}-push#{$span}
+  @if $flush
+    @extend %grid-#{$namespace}-push#{$span}-flush
 
-=grid-break($namespace, $nth)
-  &:nth-child(#{$nth})
-    @extend %grid-#{$namespace}-break
-
-=grid-unbreak($namespace, $nth)
-  &:nth-child(#{$nth})
-    @extend %grid-#{$namespace}-unbreak
+=grid-adjust($namespace, $command, $nth: "self")
+  @if $nth == "self"
+    @extend %grid-#{$namespace}-#{$command}
+  @else
+    &:nth-child(#{$nth})
+      @extend %grid-#{$namespace}-#{$command}
