@@ -75,6 +75,22 @@ $grid-ratio-outer:    $space-h * 2  !default
   %grid-#{$namespace}-flush
     margin-left: 0
 
+  %grid-#{$namespace}-right
+    float: right
+    margin-left: 0
+    margin-right: $gutter-width
+
+    &:first-child
+      margin-left: 0
+      margin-right: 0
+
+  %grid-#{$namespace}-right-flush
+    float: right
+    margin-left: 0
+
+    &:first-child
+      margin-left: 0
+
 //
   Mixins
   ------
