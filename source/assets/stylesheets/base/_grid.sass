@@ -111,7 +111,7 @@ $grid-ratio-outer:    $space-h * 2  !default
   @else
     @extend %grid-#{$namespace}-push#{$span}
 
-=grid-adjust($namespace, $command, $nth: self)
+=grid-apply($namespace, $command, $nth: self)
   @if $nth == self
     @extend %grid-#{$namespace}-#{$command}
   @else
