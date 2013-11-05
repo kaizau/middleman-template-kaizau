@@ -6,15 +6,18 @@
 -# DATA
 = data.app.global_var
 = current_page.data.local_var
-= local_var
 
--# CONTENT
-- content_for :meta do ... end
+-# TAGS
 = link_to "The Link", "the/link/path", :class => "nifty"
 = active_link "The Link", "the/link/path"
 = image_tag "puppies.jpg", :alt => "Fido and Bella!"
+
+-# CONTENT TAGS
+- content_for :meta do ... end
 = form_tag "/update", :method => "POST" do ... end
-= code_block :ruby do ... end
+= code_block :ruby do 
+  :plain
+    ...
 
 -# PARTIALS
 = partial :header

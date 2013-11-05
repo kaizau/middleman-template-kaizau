@@ -5,10 +5,10 @@
 **General**
 
 * Soft-tabs, 2 spaces
-* Lower-spinal-case selectors and variables
-* Alphabetized properties
-* `@include` and `@extend` come before properties whenever possible
-* `@import`s ordered from general to specific
+* `lower-spinal-case` selectors and variables
+* Alphabetized properties (and Compass CSS3 `@include`s)
+* Mixin `@include`s and `@extend`s come before properties when possible
+* File `@import`s ordered from general to specific
 
 **Class Names**
 
@@ -29,7 +29,7 @@
 * **Elements**
   - Atomic UI elements
   - Single tags or small groups of classes (`.button`, `.input.text input`)
-  - Cannot contain other elements or modules
+  - Test: Element cannot contain other elements or modules
 * **Modules**
   - High-level interface groups (`.topnav`)
   - Typically contain a group of elements
@@ -40,3 +40,7 @@
 * **Vendor**
   - 3rd party code
   - Never edit these files directly
+
+### Grid, Retina, Etc.
+
+TODO
