@@ -13,7 +13,7 @@ textarea
   color: $color-text
 
 html
-  font: #{$font-size-body}/#{$line-height} $font-family-sans
+  font: #{$font-small}/#{$space-v} $font-helvetica
 
 \::-moz-selection
   background: $color-selection
@@ -34,28 +34,28 @@ html
   --------
 
 =heading-properties($size, $ratio: 1.2)
-  $total-height: $line-height
+  $total-height: $space-v
   $heading-height: ceil($size * $ratio)
   @while $total-height < $heading-height
-    $total-height: $total-height + $line-height
+    $total-height: $total-height + $space-v
   font-size: $size
   line-height: $heading-height
   padding-top: $total-height - $heading-height
 
 h1, h2, h3, h4
-  font: normal #{$font-size-huge}/1 $font-family-sans
+  font: normal #{$font-largest}/1 $font-helvetica
 
 h1
-  +heading-properties($font-size-huge)
+  +heading-properties($font-largest)
 
 h2
-  +heading-properties($font-size-headline)
+  +heading-properties($font-larger)
 
 h3
-  +heading-properties($font-size-large)
+  +heading-properties($font-large)
 
 h4
-  +heading-properties($font-size-medium)
+  +heading-properties($font-medium)
 
 //
   Common
@@ -84,7 +84,7 @@ ul
 
 blockquote
   color: $color-text-light
-  font-family: $font-family-serif
+  font-family: $font-georgia
   margin-left: $space-h
   margin-right: $space-h
 
@@ -92,7 +92,7 @@ code
   background: $white
   border: 1px solid $color-border
   border-radius: $border-radius
-  font-size: $font-size-small
+  font-size: $font-small
   padding: 1px 3px
 
 fieldset

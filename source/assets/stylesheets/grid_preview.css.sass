@@ -14,8 +14,8 @@ html, body, .page
   position: relative
 
 #grid-preview
-  +background(linear-gradient(transparent $line-height - 1px, rgba(255, 0, 0, .25) $line-height - 1px)) 
-  +background-size($line-height $line-height)
+  +background(linear-gradient(transparent $space-v - 1px, rgba(255, 0, 0, .25) $space-v - 1px)) 
+  +background-size($space-v $space-v)
   bottom: 0
   display: none
   height: 100%
@@ -46,8 +46,8 @@ html, body, .page
     +grid(preview, 1)
     background: rgba(255, 0, 0, .1)
     color: rgba(255, 0, 0, .5)
-    font-size: $font-size-medium
+    font-size: $font-medium
     font-weight: bold
     height: 100%
-    padding-top: $line-height
+    padding-top: $space-v
     text-align: center

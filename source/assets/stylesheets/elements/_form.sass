@@ -8,7 +8,7 @@ fieldset
 
 .field label,
 fieldset legend
-  font-size: $font-size-small
+  font-size: $font-small
   font-weight: bold
 
 // Line break
@@ -30,7 +30,7 @@ fieldset legend,
 .field-textarea label,
 .field-select label
   line-height: 1.35
-  padding-top: $line-height - $font-size-small*1.35
+  padding-top: $space-v - $font-small*1.35
 
 //
   Fields
@@ -44,7 +44,7 @@ $padding-text-input: 4px
 
 .field-text,
 .field-textarea
-  min-height: $line-height*2
+  min-height: $space-v*2
 
   input,
   textarea
@@ -56,20 +56,20 @@ $padding-text-input: 4px
     width: 100%
 
 .field-textarea
-  min-height: $line-height*4
+  min-height: $space-v*4
 
   textarea
-    min-height: $line-height*3 - $padding-text-input
+    min-height: $space-v*3 - $padding-text-input
 
 .field-text_small
   input
     width: 20%
 
 .field-textarea_large
-  min-height: $line-height*6
+  min-height: $space-v*6
 
   textarea
-    min-height: $line-height*5 - $padding-text-input
+    min-height: $space-v*5 - $padding-text-input
 
 //
   Multiple-Field
@@ -103,7 +103,7 @@ fieldset.field-text
   ------
 
 .field-select
-  min-height: $line-height*2
+  min-height: $space-v*2
 
   select
     width: 100%
@@ -114,7 +114,7 @@ fieldset.field-text
 
 .field-checkbox,
 .field-radio
-  min-height: $line-height
+  min-height: $space-v
 
   // Preserve inline alignment
   input, label

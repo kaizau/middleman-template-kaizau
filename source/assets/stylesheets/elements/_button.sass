@@ -3,7 +3,7 @@
   -----------------------------------------------------------------------------
 
 .button
-  $font-size: $font-size-small
+  $font-size: $font-small
   $padding: 4px
 
   border-radius: $border-radius
@@ -12,11 +12,11 @@
   display: inline-block
   font-weight: normal
   font-size: $font-size
-  height: $line-height + $padding
+  height: $space-v + $padding
   line-height: 100%
   margin-bottom: 0-$padding
   margin-top: 0-$padding
-  padding: (($line-height - $font-size + $padding - 1px) / 2) $space-h/2
+  padding: (($space-v - $font-size + $padding - 1px) / 2) $space-h/2
   text-align: center
   text-decoration: none
 
@@ -61,16 +61,16 @@
   ------------
 
 .button_large
-  $font-size: $font-size-medium
+  $font-size: $font-medium
 
-  border-radius: $border-radius-large
+  border-radius: $border-radius
   box-shadow: 0 1px 3px $shadow-rgba, inset 0 1px 0 rgba(255, 255, 255, 0.75)
   font-size: $font-size
-  height: $line-height * 2
+  height: $space-v * 2
   line-height: 100%
   margin-bottom: 0
   margin-top: 0
-  padding: (($line-height*2 - $font-size - 1px) / 2) $space-h
+  padding: (($space-v*2 - $font-size - 1px) / 2) $space-h
 
 //
   Button Group
@@ -79,7 +79,7 @@
 .button-group
   +block
   +clearfix
-  min-height: $line-height
+  min-height: $space-v
 
   .button
     float: left

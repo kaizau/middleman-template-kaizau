@@ -1,64 +1,82 @@
 //
-  Color
+  Color Palette
   -----------------------------------------------------------------------------
 
-$black:       #000
-$gray-void:   #222
-$gray-shale:  #444
-$gray-steel:  #777
-$gray-silver: #aaa
-$gray-rain:   #ccc
-$gray-smoke:  #eee
-$gray-fog:    #f3f3f3
-$white:       #fff
+// neutrals
+$black:             #000
+$gray-void:         #222
+$gray-shale:        #444
+$gray-steel:        #777
+$gray-silver:       #aaa
+$gray-rain:         #ccc
+$gray-smoke:        #eee
+$gray-fog:          #f3f3f3
+$white:             #fff
 
-// Text
+//
+  Color Usage
+  -----------------------------------------------------------------------------
+
+// text
 $color-text:        $gray-shale
 $color-text-light:  $gray-steel
 $color-heading:     $gray-shale
 $color-anchor:      #04f
 
-// Layout
+// layout
 $color-border:      $gray-rain
 $color-background:  $gray-fog
 
-// Misc
+// misc
 $color-selection:   #ff9
 
 //
-  Font Family
+  Typography
   -----------------------------------------------------------------------------
 
-$font-family-sans:  "Helvetica Neue", Arial, sans-serif
-$font-family-serif: Georgia, "Times New Roman", Times, serif
-$font-family-micro: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif
-$font-family-mono:  "Bitstream Vera Sans Mono", Consolas, Courier, monospace
+// font families
+$font-helvetica:    "Helvetica Neue", Arial, sans-serif
+$font-georgia:      Georgia, "Times New Roman", Times, serif
+$font-lucida:       "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif
+$font-mono:         "Bitstream Vera Sans Mono", Consolas, Courier, monospace
+
+// font sizes
+$font-smallest:     10px
+$font-smaller:      12px
+$font-small:        14px
+$font-medium:       16px
+$font-large:        18px
+$font-larger:       24px
+$font-largest:      36px
 
 //
-  Font Size
+  Spacing
   -----------------------------------------------------------------------------
 
-$font-size-micro:     10px
-$font-size-small:     12px
-$font-size-body:      14px
-$font-size-medium:    16px
-$font-size-large:     18px
-$font-size-headline:  24px
-$font-size-huge:      36px
+// screen
+$screen-small:      600px
+$screen-medium:     800px
+$screen-large:      1000px
 
-//
-  Spacing and Rhythm
-  -----------------------------------------------------------------------------
+// media queries
+$media-gt-small:    "(min-width: #{$screen-small})"
+$media-gt-medium:   "(min-width: #{$screen-medium})"
+$media-gt-large:    "(min-width: #{$screen-large})"
+$media-lt-small:    "(max-width: #{$screen-small - 1px})"
+$media-lt-medium:   "(max-width: #{$screen-medium - 1px})"
+$media-lt-large:    "(max-width: #{$screen-large - 1px})"
+$media-small:       "(min-width: #{$screen-small}) and (max-width: #{$screen-medium - 1px})"
+$media-medium:      "(min-width: #{$screen-medium}) and (max-width: #{$screen-large - 1px})"
+$media-midrange:    "(min-width: #{$screen-small}) and (max-width: #{$screen-large - 1px})"
 
-$line-height:   24px
-$space-h:       32px // horizontal spacing
-$space-v:       24px // vertical spacing
+// vertical / horizontal
+$space-v:           24px
+$space-h:           32px
 
 //
   Visual Enhancements
   -----------------------------------------------------------------------------
 
-$shadow-rgba:         rgba(0, 0, 0, .25)
-$shadow-rgba-dark:    rgba(0, 0, 0, .45)
-$border-radius:       4px
-$border-radius-large: 6px
+$border-radius:     4px
+$shadow-rgba:       rgba(0, 0, 0, .25)
+$shadow-rgba-dark:  rgba(0, 0, 0, .45)
