@@ -31,8 +31,14 @@ set :markdown, :fenced_code_blocks => true,
 
 # Build
 configure :build do
+  ignore "/styleguide/index.html"
+  ignore "/assets/images/sprites/puppy*"
+  ignore "/assets/images/example*"
+  ignore "/assets/*/grid_preview.*"
+  ignore "/**README.md"
+
   compass_config { |c| c.output_style = :compressed }
   activate :minify_javascript, :ignore => /vendor\/*/
-  activate :asset_hash
+  activate :asset_hash, :ignore => ["favicon.ico"]
   #activate :asset_host, :host => "//EXAMPLE.cloudfront.net"
 end
