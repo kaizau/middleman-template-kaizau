@@ -48,17 +48,17 @@
   -----------------------------------------------------------------------------
 
 // Retina background image
-$retina-suffix: "_2x" !default
-=background-image-retina($base, $ext: ".png")
+$retina-suffix: "@2x" !default
+=background-image-retina($base, $ext: ".png", $width: auto, $height: auto)
   $image: $base + $ext
-  $retina: $base + $retina-suffix + $ext
+  $image2x: $base + $retina-suffix + $ext
 
   background-image: image-url($image)
 
-  @if file_exists($retina)
+  @if file_exists($image2x)
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
-      +background-size(image-width($image) auto)
-      background-image: image-url($retina)
+      +background-size($width $height)
+      background-image: image-url($image2x)
  
 //
   Retina sprites

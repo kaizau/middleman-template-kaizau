@@ -7,6 +7,8 @@
 # ============================================================================ #
 
 require "sass-globbing"
+require "animation"
+require "lib/custom_helpers"
 
 # Project
 set :layout, "sticky"
@@ -17,6 +19,7 @@ set :fonts_dir, "assets/fonts"
 set :partials_dir, "shared"
 
 # Under the Hood
+helpers CustomHelpers
 compass_config { |c| c.output_style = :expanded }
 activate :livereload, :grace_period => 0.25 if development?
 activate :directory_indexes
@@ -31,11 +34,9 @@ set :markdown, :fenced_code_blocks => true,
 
 # Build
 configure :build do
-  ignore "/styleguide/index.html"
-  ignore "/assets/images/sprites/puppy*"
-  ignore "/assets/images/example*"
-  ignore "/assets/*/grid_preview.*"
   ignore "/**README.md"
+  ignore "/**styleguide*"
+  ignore "/**grid_preview.*"
 
   compass_config { |c| c.output_style = :compressed }
   activate :minify_javascript, :ignore => /vendor\/*/
