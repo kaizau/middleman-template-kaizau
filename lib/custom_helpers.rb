@@ -46,10 +46,11 @@ module CustomHelpers
   # making styling a pain. This helper generates a <span> if you're on the page, but an <a> otherwise.
   #
   def active_link(name, page, active = "active")
+    original = page.dup
     if page?(page)
       content_tag :span, name, :class => active
     else
-      link_to name, page
+      link_to name, original
     end
   end
 

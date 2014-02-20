@@ -35,8 +35,9 @@ set :markdown, :fenced_code_blocks => true,
 # Build
 configure :build do
   ignore "/**README.md"
-  ignore "/**styleguide*"
+  ignore "/**styleguide/*"
   ignore "/**grid_preview.*"
+  ignore "/assets/stylesheets/styleguide.css"
 
   compass_config { |c| c.output_style = :compressed }
   activate :minify_javascript, :ignore => /vendor\/*/
